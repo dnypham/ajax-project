@@ -1,21 +1,65 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
 
-.navbar {
+.header {
+  font-family: 'Montserrat', sans-serif;
+  background-color: #f9b437;
+  color: white;
+  height: 45px;
+  font-size: 14px;
+}
+
+.logo-flex {
+  height: 45px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.logo-flex > h1 {
+  font-size: inherit;
+  margin-left: 10px;
+}
+
+.logo-flex > h1:hover {
+  cursor: pointer;
+}
+
+.search-flex {
+  font-size: inherit;
+  height: 45px;
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 0 20px;
-  height: 40px;
 }
 
-.navbar i {
-  display: block;
-  color: white;
-  padding: 0 20px;
+.search-flex > input {
+  margin-left: 10px;
+  border-radius: 10px;
+  border: 1px solid #fff;
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+  min-width: 60%;
+  height: 25px;
+  padding: 0 10px;
 }
 
-.navbar p {
-  color: white;
-  font-family: 'Montserrat', sans-serif;
-  margin-right: auto;
+.nav-links-flex {
+  height: 45px;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  font-size: inherit;
+}
+
+.nav-links-flex > i {
+  margin-right: 20px;
+}
+
+.nav-links-flex > i:hover {
+  cursor: pointer;
+  color: black;
+}
+
+.nav-links-flex > p:hover {
+  cursor: pointer;
+  color: black;
 }

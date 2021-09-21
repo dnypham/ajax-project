@@ -13,12 +13,30 @@
   <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
-  <header class="header-container">
-    <div class="row navbar">
-      <i class="fas fa-beer fa-2x"></i>
-      <p>Brew Discovery</p>
-    </div>
+
+  <header class="header">
+    <nav class="row padding-30">
+      <div class="column-third">
+        <div class="logo-flex">
+          <i class="fas fa-beer fa-2x"></i>
+          <h1>Brew Discovery</h1>
+        </div>
+      </div>
+      <div class="column-third">
+        <div class="search-flex">
+          <label for="search-bar"></label>
+          <input id="search-bar" type="text" placeholder="Search by city">
+        </div>
+      </div>
+      <div class="column-third">
+        <div class="nav-links-flex">
+          <i class="fas fa-bars fa-2x"></i>
+          <p>Sign in</p>
+        </div>
+      </div>
+    </nav>
   </header>
+
   <script src="js/data.js"></script>
   <script src="js/main.js"></script>
 </body>

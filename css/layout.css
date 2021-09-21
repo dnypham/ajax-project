@@ -2,16 +2,25 @@ body {
   background-color: #f5f5f5;
 }
 
-.header-container {
-  max-width: 1440px;
-  height: 40px;
-  background-color: #f9b437;
-}
-
 .row {
   display: flex;
 }
 
+.padding-30 {
+  padding: 0 30px;
+}
+
 .column-full {
   width: 100%;
+}
+
+.column-third {
+  flex-basis: calc(100% / 3);
+}
+
+@media only screen and (max-width: 600px) {
+  .search-flex > label,
+  .search-flex > input {
+    display: none;
+  }
 }
