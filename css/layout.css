@@ -10,17 +10,23 @@ body {
   padding: 0 30px;
 }
 
+.height-120 {
+  height: 120px;
+}
+
+.border-bottom {
+  border-bottom: 1px solid black;
+  margin: 0 120px;
+}
+
+.page-header {
+  height: 50px;
+}
+
 .column-full {
   width: 100%;
 }
 
 .column-third {
   flex-basis: calc(100% / 3);
-}
-
-@media only screen and (max-width: 600px) {
-  .search-flex > label,
-  .search-flex > input {
-    display: none;
-  }
 }

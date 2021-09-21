@@ -1,4 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+
+/* ----------NAVIGATION BAR---------- */
 
 .header {
   font-family: 'Montserrat', sans-serif;
@@ -18,10 +21,6 @@
 .logo-flex > h1 {
   font-size: inherit;
   margin-left: 10px;
-}
-
-.logo-flex > h1:hover {
-  cursor: pointer;
 }
 
 .search-flex {
@@ -54,6 +53,29 @@
   margin-right: 20px;
 }
 
+/* ----------MAIN CONTENT---------- */
+
+.main {
+  font-family: 'Bebas Neue', sans-serif;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.main h1 {
+  letter-spacing: 2px;
+  font-size: 72px;
+  text-align: center;
+  margin-top: 20px;
+}
+
+/* ----------FOOTER---------- */
+
+/* ----------PSEUDO-CLASSES---------- */
+
+.logo-flex > h1:hover {
+  cursor: pointer;
+}
+
 .nav-links-flex > i:hover {
   cursor: pointer;
   color: black;
@@ -62,4 +84,77 @@
 .nav-links-flex > p:hover {
   cursor: pointer;
   color: black;
+}
+
+/* ----------MEDIA QUERIES---------- */
+
+@media only screen and (max-width: 951px) {
+  .main h1 {
+    font-size: 62px;
+  }
+
+  .border-bottom {
+    margin: 0 100px;
+  }
+
+  .height-120 {
+    height: 100px;
+  }
+}
+
+@media only screen and (max-width: 820px) {
+  .main h1 {
+    font-size: 58px;
+  }
+
+  .border-bottom {
+    margin: 0 80px;
+  }
+}
+
+@media only screen and (max-width: 765px) {
+  .main h1 {
+    font-size: 50px;
+  }
+
+  .border-bottom {
+    margin: 0 80px;
+  }
+
+  .height-120 {
+    height: 90px;
+  }
+}
+
+@media only screen and (max-width: 670px) {
+  .main h1 {
+    font-size: 44px;
+  }
+
+  .border-bottom {
+    margin: 0 70px;
+  }
+
+  .height-120 {
+    height: 80px;
+  }
+}
+
+@media only screen and (max-width: 615px) {
+  .search-flex > label,
+  .search-flex > input {
+    display: none;
+  }
+
+  .main h1 {
+    font-size: 38px;
+  }
+
+  .border-bottom {
+    margin: 0 30px;
+  }
+
+  .height-120 {
+    height: 70px;
+  }
 }
