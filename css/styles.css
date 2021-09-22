@@ -57,7 +57,7 @@
 
 .main {
   font-family: 'Bebas Neue', sans-serif;
-  max-width: 1200px;
+  max-width: 1300px;
   margin: 0 auto;
 }
 
@@ -66,6 +66,19 @@
   font-size: 72px;
   text-align: center;
   margin-top: 20px;
+}
+
+.image-container {
+  height: 350px;
+  width: 350px;
+}
+
+.image-container > img {
+  height: 100%;
+  width: 100%;
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 20px;
+  object-fit: cover;
 }
 
 /* ----------FOOTER---------- */
