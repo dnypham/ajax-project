@@ -34,14 +34,40 @@ $localButton.addEventListener('click', function (event) {
   $localView.classList.remove('hidden');
   $homepageView.classList.add('hidden');
 
-  renderBreweries();
+  var ipgeo = new XMLHttpRequest();
+
+  ipgeo.open('GET', 'http://api.techniknews.net/ipgeo/');
+  ipgeo.responseType = 'json';
+
+  ipgeo.addEventListener('load', function () {
+    var city = ipgeo.response.city;
+    var openBreweryDB = new XMLHttpRequest();
+
+    openBreweryDB.open('GET', 'https://api.openbrewerydb.org/breweries?by_city=' + city);
+    openBreweryDB.responseType = 'json';
+
+    openBreweryDB.addEventListener('load', function () {
+      var breweries = openBreweryDB.response;
+
+      for (var i = 0; i < breweries.length; i++) {
+        if (city === breweries[i].city) {
+          $parentDiv.appendChild(renderBreweries(breweries[i]));
+        }
+      }
+    });
+
+    openBreweryDB.send();
+  });
+
+  ipgeo.send();
+
 });
 
 // Function to Render Brewery Cards
 
 var $parentDiv = document.querySelector('#parent-div');
 
-function renderBreweries() {
+function renderBreweries(breweries) {
   var $col3 = document.createElement('div');
   $col3.setAttribute('class', 'column-half');
 
@@ -70,14 +96,14 @@ function renderBreweries() {
   $infoFlex.appendChild($breweryInfo);
 
   var $h3 = document.createElement('h3');
-  $h3.textContent = 'Common Space Brewery';
+  $h3.textContent = breweries.name;
   $breweryInfo.appendChild($h3);
 
   var $ul = document.createElement('ul');
   $breweryInfo.appendChild($ul);
 
   var $li1 = document.createElement('li');
-  $li1.textContent = 'Hawthorne';
+  $li1.textContent = breweries.city;
   $ul.appendChild($li1);
 
   var $li2 = document.createElement('li');
@@ -85,11 +111,11 @@ function renderBreweries() {
   $ul.appendChild($li2);
 
   var $li3 = document.createElement('li');
-  $li3.textContent = '(' + '310' + ')' + '-' + '662' + '-' + '825';
+  $li3.textContent = breweries.phone;
   $ul.appendChild($li3);
 
   var $li4 = document.createElement('li');
-  $li4.textContent = 'Website';
+  $li4.textContent = breweries.website_url;
   $ul.appendChild($li4);
 
   var $listIconsFlex = document.createElement('div');
@@ -117,12 +143,12 @@ function renderBreweries() {
   $mapFlex.appendChild($breweryMap);
 
   var $map = document.createElement('iframe');
-  $map.setAttribute('src', 'https://maps.google.com/maps?q=33.91683, -118.33350&z=15&output=embed');
+  $map.setAttribute('src', 'https://maps.google.com/maps?q=' + breweries.latitude + ',' + breweries.longitude + '&z=15&output=embed');
   $map.setAttribute('width', '228');
   $map.setAttribute('height', '168');
   $map.setAttribute('frameborder', '0');
   $map.setAttribute('style', 'border: 0;');
   $breweryMap.appendChild($map);
 
-  $parentDiv.appendChild($col3);
+  return $col3;
 }

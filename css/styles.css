@@ -164,6 +164,7 @@
 }
 
 .brewery-info > h3 {
+  font-size: 16px;
   text-decoration: underline;
   margin: 0;
   text-align: center;
@@ -171,10 +172,11 @@
 
 .brewery-info > ul {
   list-style: none;
-  padding-left: 20px;
+  padding-left: 10px;
 }
 
 .brewery-info li {
+  font-size: 14px;
   margin-bottom: 5px;
 }
 
