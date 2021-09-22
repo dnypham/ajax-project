@@ -101,7 +101,8 @@ function renderBreweries(breweries) {
   $breweryInfo.appendChild($ul);
 
   var $li1 = document.createElement('li');
-  $li1.textContent = breweries.city;
+  var phoneString = '(' + breweries.phone.slice(0, 3) + ')' + ' ' + breweries.phone.slice(3, 6) + '-' + breweries.phone.slice(6);
+  $li1.textContent = phoneString;
   $ul.appendChild($li1);
 
   var $li2 = document.createElement('li');
@@ -109,13 +110,8 @@ function renderBreweries(breweries) {
   $ul.appendChild($li2);
 
   var $li3 = document.createElement('li');
-  var phoneString = '(' + breweries.phone.slice(0, 3) + ')' + ' ' + breweries.phone.slice(3, 6) + '-' + breweries.phone.slice(6);
-  $li3.textContent = phoneString;
+  $li3.textContent = breweries.website_url;
   $ul.appendChild($li3);
-
-  var $li4 = document.createElement('li');
-  $li4.textContent = breweries.website_url;
-  $ul.appendChild($li4);
 
   var $listIconsFlex = document.createElement('div');
   $listIconsFlex.setAttribute('class', 'list-icons-flex');
