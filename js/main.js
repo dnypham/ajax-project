@@ -157,6 +157,11 @@ function renderBreweries(breweries) {
     $map.setAttribute('frameborder', '0');
     $map.setAttribute('style', 'border: 0;');
     $breweryMap.appendChild($map);
+  } else {
+    var $img = document.createElement('img');
+    $img.setAttribute('class', 'map-image');
+    $img.setAttribute('src', 'https://static-00.iconduck.com/assets.00/map-marker-slash-icon-500x512-rym1tj3e.png');
+    $breweryMap.appendChild($img);
   }
 
   return $col3;
