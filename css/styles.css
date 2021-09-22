@@ -172,12 +172,12 @@
 
 .brewery-info > ul {
   list-style: none;
-  padding-left: 10px;
+  padding-left: 5px;
 }
 
 .brewery-info li {
-  font-size: 14px;
-  margin-bottom: 5px;
+  font-size: 12px;
+  margin-bottom: 10px;
 }
 
 .list-icons-flex {

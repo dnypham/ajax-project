@@ -142,12 +142,15 @@ function renderBreweries(breweries) {
   $mapFlex.appendChild($breweryMap);
 
   var $map = document.createElement('iframe');
-  $map.setAttribute('src', 'https://maps.google.com/maps?q=' + breweries.latitude + ',' + breweries.longitude + '&z=15&output=embed');
-  $map.setAttribute('width', '228');
-  $map.setAttribute('height', '168');
-  $map.setAttribute('frameborder', '0');
-  $map.setAttribute('style', 'border: 0;');
-  $breweryMap.appendChild($map);
+
+  if (breweries.latitude && breweries.longitude) {
+    $map.setAttribute('src', 'https://maps.google.com/maps?q=' + breweries.latitude + ',' + breweries.longitude + '&z=15&output=embed');
+    $map.setAttribute('width', '228');
+    $map.setAttribute('height', '168');
+    $map.setAttribute('frameborder', '0');
+    $map.setAttribute('style', 'border: 0;');
+    $breweryMap.appendChild($map);
+  }
 
   return $col3;
 }
