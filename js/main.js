@@ -106,12 +106,23 @@ function renderBreweries(breweries) {
   $ul.appendChild($li1);
 
   var $li2 = document.createElement('li');
-  $li2.textContent = breweries.street + ', ' + breweries.city + ', ' + breweries.state;
+  if (breweries.street === null) {
+    breweries.street = '';
+  } else {
+    breweries.street = breweries.street + ', ';
+  }
+  $li2.textContent = breweries.street + breweries.city + ', ' + breweries.state;
   $ul.appendChild($li2);
 
   var $li3 = document.createElement('li');
-  $li3.textContent = breweries.website_url;
   $ul.appendChild($li3);
+
+  var $a = document.createElement('a');
+  if (breweries.website_url) {
+    $a.textContent = breweries.website_url.slice(7);
+    $a.setAttribute('href', breweries.website_url);
+  }
+  $li3.appendChild($a);
 
   var $listIconsFlex = document.createElement('div');
   $listIconsFlex.setAttribute('class', 'list-icons-flex');
