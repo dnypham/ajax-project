@@ -4,11 +4,15 @@
 /* ----------NAVIGATION BAR---------- */
 
 .header {
+  position: fixed;
   font-family: 'Montserrat', sans-serif;
   background-color: #f9b437;
   color: white;
   height: 45px;
   font-size: 14px;
+  top: 0;
+  left: 0;
+  right: 0;
 }
 
 .logo-flex {
@@ -58,7 +62,7 @@
 .main {
   font-family: 'Bebas Neue', sans-serif;
   max-width: 1300px;
-  margin: 0 auto;
+  margin: 40px auto 50px;
 }
 
 .main h1 {
@@ -70,7 +74,7 @@
 
 .image-container {
   display: flex;
-  flex-direction: column;
+  flex-wrap: wrap;
   justify-content: center;
   align-content: center;
   height: 350px;
@@ -102,7 +106,7 @@
   flex-wrap: wrap;
   justify-content: center;
   align-content: center;
-  height: 80px;
+  height: 120px;
   margin-top: 30px;
   margin-left: 125px;
   margin-right: 125px;
@@ -112,7 +116,6 @@
 .local-button-flex > p {
   width: 100%;
   text-align: center;
-  padding-top: 25px;
 }
 
 .local-button-flex > button {
@@ -129,7 +132,7 @@
 /* ----------FOOTER---------- */
 
 .footer {
-  position: absolute;
+  position: fixed;
   background-color: #f9b437;
   bottom: 0;
   left: 0;
