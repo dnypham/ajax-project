@@ -105,11 +105,12 @@ function renderBreweries(breweries) {
   $ul.appendChild($li1);
 
   var $li2 = document.createElement('li');
-  $li2.textContent = '3411 El Segundo Blvd';
+  $li2.textContent = breweries.street + ', ' + breweries.city + ', ' + breweries.state;
   $ul.appendChild($li2);
 
   var $li3 = document.createElement('li');
-  $li3.textContent = breweries.phone;
+  var phoneString = '(' + breweries.phone.slice(0, 3) + ')' + ' ' + breweries.phone.slice(3, 6) + '-' + breweries.phone.slice(6);
+  $li3.textContent = phoneString;
   $ul.appendChild($li3);
 
   var $li4 = document.createElement('li');
