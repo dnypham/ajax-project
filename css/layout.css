@@ -14,12 +14,13 @@ body {
   height: 120px;
 }
 
-.padding-top-50 {
-  padding-top: 50px;
-}
-
 .border-bottom {
   border-bottom: 1px solid black;
+  margin: 0 120px;
+}
+
+.border-top {
+  border-top: 1px solid black;
   margin: 0 120px;
 }
 
