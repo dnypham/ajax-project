@@ -128,7 +128,38 @@
 
 /* ----------FOOTER---------- */
 
+.footer {
+  position: absolute;
+  background-color: #f9b437;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  color: white;
+  height: 45px;
+  font-size: 14px;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.icon-flex {
+  width: 70px;
+  height: 45px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0 auto;
+}
+
 /* ----------PSEUDO-CLASSES---------- */
+
+.search-flex > input:focus {
+  outline: none;
+  border-radius: 10px;
+  border: 1px solid black;
+}
+
+.search-flex i {
+  cursor: pointer;
+}
 
 .logo-flex > h1:hover {
   cursor: pointer;
@@ -147,6 +178,11 @@
 .local-button-flex > button:hover {
   cursor: pointer;
   background-color: rgb(249, 180, 55, 0.8);
+}
+
+.icon-flex > i:hover {
+  cursor: pointer;
+  color: black;
 }
 
 /* ----------MEDIA QUERIES---------- */
