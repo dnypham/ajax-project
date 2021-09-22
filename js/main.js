@@ -50,9 +50,7 @@ $localButton.addEventListener('click', function (event) {
       var breweries = openBreweryDB.response;
 
       for (var i = 0; i < breweries.length; i++) {
-        if (city === breweries[i].city) {
-          $parentDiv.appendChild(renderBreweries(breweries[i]));
-        }
+        $parentDiv.appendChild(renderBreweries(breweries[i]));
       }
     });
 
