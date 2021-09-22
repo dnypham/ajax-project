@@ -150,6 +150,56 @@
   border-radius: 20px;
 }
 
+.info-flex {
+  display: flex;
+  justify-content: center;
+  padding: 15px 20px;
+  height: 200px;
+}
+
+.brewery-info {
+  font-family: 'Montserrat', sans-serif;
+  width: 255px;
+  height: 135px;
+}
+
+.brewery-info > h3 {
+  text-decoration: underline;
+  margin: 0;
+  text-align: center;
+}
+
+.brewery-info > ul {
+  list-style: none;
+  padding-left: 20px;
+}
+
+.brewery-info li {
+  margin-bottom: 5px;
+}
+
+.list-icons-flex {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.list-icons-flex i {
+  padding-right: 10px;
+}
+
+.map-flex {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 200px;
+}
+
+.brewery-map {
+  border: 1px solid #f9b437;
+  width: 230px;
+  height: 170px;
+}
+
 /* ----------FOOTER---------- */
 
 .footer {
@@ -207,6 +257,14 @@
 .icon-flex > i:hover {
   cursor: pointer;
   color: black;
+}
+
+.list-icons-flex i:first-child {
+  color: #f9b437;
+}
+
+.list-icons-flex i:last-child {
+  color: #ff4033;
 }
 
 /* ----------MEDIA QUERIES---------- */
