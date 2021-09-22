@@ -1,8 +1,12 @@
+// Click GitHub icon to go to GitHub profile
+
 var $github = document.querySelector('#github');
 
 $github.addEventListener('click', function () {
   window.open('https://github.com/dnypham');
 });
+
+// Click LinkedIn icon to go to LinkedIn profile
 
 var $linkedin = document.querySelector('#linkedin');
 
@@ -10,15 +14,21 @@ $linkedin.addEventListener('click', function () {
   window.open('https://www.linkedin.com/in/daniel-pham-10/');
 });
 
+// Click app name in header to go to Homepage View
+
 var $homepage = document.querySelector('h1');
 var $homepageView = document.querySelector('main[data-view="homepage"]');
 var $localButton = document.querySelector('#local-button');
 var $localView = document.querySelector('main[data-view="local"]');
 
-$homepage.addEventListener('click', function () {
+$homepage.addEventListener('click', function (event) {
   $homepageView.classList.remove('hidden');
   $localView.classList.add('hidden');
+
+  $parentDiv.innerHTML = '';
 });
+
+// Click local button to go to Local Breweries View
 
 $localButton.addEventListener('click', function (event) {
   $localView.classList.remove('hidden');
@@ -27,15 +37,21 @@ $localButton.addEventListener('click', function (event) {
   renderBreweries();
 });
 
-var $parentDiv = document.querySelector('#parentDiv');
+// Function to Render Brewery Cards
+
+var $parentDiv = document.querySelector('#parent-div');
 
 function renderBreweries() {
-  var $breweryCardContainer = document.createElement('div');
-  $breweryCardContainer.setAttribute('class', 'brewery-card-flex');
+  var $col3 = document.createElement('div');
+  $col3.setAttribute('class', 'column-half');
+
+  var $breweryCardFlex = document.createElement('div');
+  $breweryCardFlex.setAttribute('class', 'brewery-card-flex');
+  $col3.appendChild($breweryCardFlex);
 
   var $breweryCard = document.createElement('div');
   $breweryCard.setAttribute('class', 'brewery-card');
-  $breweryCardContainer.appendChild($breweryCard);
+  $breweryCardFlex.appendChild($breweryCard);
 
   var $row = document.createElement('div');
   $row.setAttribute('class', 'row');
@@ -108,5 +124,5 @@ function renderBreweries() {
   $map.setAttribute('style', 'border: 0;');
   $breweryMap.appendChild($map);
 
-  $parentDiv.appendChild($breweryCardContainer);
+  $parentDiv.appendChild($col3);
 }
