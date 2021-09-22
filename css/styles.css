@@ -57,12 +57,12 @@
   margin-right: 20px;
 }
 
-/* ----------MAIN CONTENT---------- */
+/* ----------MAIN CONTENT - HOMEPAGE VIEW---------- */
 
 .main {
   font-family: 'Bebas Neue', sans-serif;
   max-width: 1300px;
-  margin: 45px auto 50px;
+  margin: 45px auto 55px;
 }
 
 .main h1 {
@@ -130,6 +130,24 @@
   background-color: #f9b437;
   border: none;
   font-size: 22px;
+  letter-spacing: 1px;
+}
+
+/* ----------MAIN CONTENT - LOCAL VIEW---------- */
+
+.brewery-card-flex {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+.brewery-card {
+  width: 565px;
+  height: 200px;
+  border: 1px solid #f9b437;
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 20px;
 }
 
 /* ----------FOOTER---------- */

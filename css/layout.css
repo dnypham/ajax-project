@@ -29,7 +29,11 @@ body {
 }
 
 .column-full {
-  width: 100%;
+  flex-basis: 100%;
+}
+
+.column-half {
+  flex-basis: 50%;
 }
 
 .column-third {
@@ -38,4 +42,8 @@ body {
 
 .flex-wrap {
   flex-wrap: wrap;
+}
+
+.hidden {
+  display: none;
 }
