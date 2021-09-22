@@ -69,6 +69,10 @@
 }
 
 .image-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
   height: 350px;
   width: 350px;
 }
@@ -79,6 +83,17 @@
   box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
   border-radius: 20px;
   object-fit: cover;
+}
+
+.image-container > p {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 14px;
+  text-align: center;
+}
+
+.center-image {
+  display: flex;
+  justify-content: center;
 }
 
 /* ----------FOOTER---------- */
