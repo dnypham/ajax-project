@@ -165,6 +165,7 @@ function renderBreweries(breweries) {
   var $i1 = document.createElement('i');
   $i1.setAttribute('class', 'far fa-heart fa-2x');
   $i1.setAttribute('id', 'heart');
+  $i1.setAttribute('data-id', breweries.id);
   $col1.appendChild($i1);
 
   var $col2 = document.createElement('div');
@@ -204,6 +205,8 @@ $parentDiv.addEventListener('click', function (event) {
   if (event.target.matches('#heart')) {
     if (event.target.className === 'far fa-heart fa-2x') {
       event.target.className = 'fas fa-heart fa-2x';
+      var id = event.target.getAttribute('data-id');
+      data.favorites.push(parseInt(id));
     } else {
       event.target.className = 'far fa-heart fa-2x';
     }
