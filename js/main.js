@@ -224,14 +224,30 @@ $parentDiv.addEventListener('click', function (event) {
 
       openBreweryDB.addEventListener('load', function () {
         data.favorites.push(openBreweryDB.response);
+
+        for (var i = 0; i < data.favorites.length; i++) {
+          if (Number.parseInt(event.target.getAttribute('data-id')) === data.favorites[i].id) {
+            data.favorites[i].heart = 'on';
+          }
+        }
       });
 
       openBreweryDB.send();
+
     } else {
       event.target.className = 'far fa-heart fa-2x';
+
+      for (var x = 0; x < data.favorites.length; x++) {
+        if (Number.parseInt(event.target.getAttribute('data-id')) === data.favorites[x].id) {
+          data.favorites[x].heart = 'off';
+          data.favorites.splice(x, 1);
+        }
+      }
     }
   }
 });
+
+// Rendering back saved list.
 
 var $favorites = document.querySelector('#favorites-list');
 
