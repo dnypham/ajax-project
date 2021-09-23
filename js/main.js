@@ -1,19 +1,3 @@
-// Click GitHub icon to go to GitHub profile
-
-var $github = document.querySelector('#github');
-
-$github.addEventListener('click', function () {
-  window.open('https://github.com/dnypham');
-});
-
-// Click LinkedIn icon to go to LinkedIn profile
-
-var $linkedin = document.querySelector('#linkedin');
-
-$linkedin.addEventListener('click', function () {
-  window.open('https://www.linkedin.com/in/daniel-pham-10/');
-});
-
 // Click app name in header to go to Homepage View
 
 var $homepage = document.querySelector('h1');

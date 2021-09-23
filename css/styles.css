@@ -234,6 +234,10 @@
   margin: 0 auto;
 }
 
+.icon-flex > a {
+  color: white;
+}
+
 /* ----------PSEUDO-CLASSES---------- */
 
 .search-flex > input:focus {
@@ -266,7 +270,7 @@
   background-color: rgb(249, 180, 55, 0.8);
 }
 
-.icon-flex > i:hover {
+.icon-flex > a:hover {
   cursor: pointer;
   color: black;
 }
