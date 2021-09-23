@@ -54,6 +54,8 @@ var $searchBar = document.querySelector('#search-bar');
 
 $searchBar.addEventListener('keydown', function (event) {
   if (event.keyCode === 13) {
+
+    var breweryCount = 0;
     $homepageView.classList.add('hidden');
     $localView.classList.remove('hidden');
     $parentDiv.innerHTML = '';
@@ -68,12 +70,18 @@ $searchBar.addEventListener('keydown', function (event) {
 
       for (var i = 0; i < breweries.length; i++) {
         $parentDiv.appendChild(renderBreweries(breweries[i]));
+        breweryCount++;
       }
+
+      if (breweryCount > 0) {
+        $header.textContent = city + ' ' + 'Breweries';
+      } else {
+        $header.textContent = 'No Breweries Found in' + ' ' + '"' + city + '"';
+      }
+      $searchBar.value = '';
     });
 
     openBreweryDB.send();
-    $searchBar.value = '';
-    $header.textContent = city + ' ' + 'Breweries';
   }
 });
 
