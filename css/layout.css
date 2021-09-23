@@ -1,0 +1,49 @@
+body {
+  background-color: #f3f3f4;
+}
+
+.row {
+  display: flex;
+}
+
+.padding-30 {
+  padding: 0 30px;
+}
+
+.height-120 {
+  height: 120px;
+}
+
+.border-bottom {
+  border-bottom: 1px solid black;
+  margin: 0 120px;
+}
+
+.border-top {
+  border-top: 1px solid black;
+  margin: 0 120px;
+}
+
+.page-header {
+  height: 50px;
+}
+
+.column-full {
+  flex-basis: 100%;
+}
+
+.column-half {
+  flex-basis: 50%;
+}
+
+.column-third {
+  flex-basis: calc(100% / 3);
+}
+
+.flex-wrap {
+  flex-wrap: wrap;
+}
+
+.hidden {
+  display: none;
+}

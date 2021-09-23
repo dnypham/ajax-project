@@ -1,0 +1,362 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+
+/* ----------NAVIGATION BAR---------- */
+
+.header {
+  position: fixed;
+  font-family: 'Montserrat', sans-serif;
+  background-color: #f9b437;
+  color: white;
+  height: 45px;
+  font-size: 14px;
+  top: 0;
+  left: 0;
+  right: 0;
+}
+
+.logo-flex {
+  height: 45px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.logo-flex > h1 {
+  font-size: inherit;
+  margin-left: 10px;
+}
+
+.search-flex {
+  font-size: inherit;
+  height: 45px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.search-flex > input {
+  margin-left: 10px;
+  border-radius: 10px;
+  border: 1px solid #fff;
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+  min-width: 60%;
+  height: 25px;
+  padding: 0 10px;
+}
+
+.nav-links-flex {
+  height: 45px;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  font-size: inherit;
+}
+
+.nav-links-flex > i {
+  margin-right: 20px;
+}
+
+/* ----------MAIN CONTENT - HOMEPAGE VIEW---------- */
+
+.main {
+  font-family: 'Bebas Neue', sans-serif;
+  max-width: 1300px;
+  margin: 45px auto 55px;
+}
+
+.main h1 {
+  letter-spacing: 2px;
+  font-size: 72px;
+  text-align: center;
+  margin-top: 20px;
+}
+
+.img-content {
+  padding: 40px 0 20px;
+}
+
+.image-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-content: center;
+  height: 325px;
+  width: 325px;
+}
+
+.image-container > img {
+  height: 100%;
+  width: 100%;
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 20px;
+  object-fit: cover;
+}
+
+.img-content > p {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 14px;
+  text-align: center;
+}
+
+.center-image {
+  display: flex;
+  justify-content: center;
+}
+
+.local-button-flex {
+  font-family: 'Montserrat', sans-serif;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-content: center;
+  height: 40px;
+  margin-top: 30px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.local-button-flex > p {
+  width: 100%;
+  text-align: center;
+}
+
+.local-button-flex > button {
+  width: 160px;
+  height: 50px;
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 8px;
+  color: white;
+  background-color: #f9b437;
+  border: none;
+  font-size: 22px;
+  letter-spacing: 1px;
+}
+
+/* ----------MAIN CONTENT - LOCAL VIEW---------- */
+
+.brewery-card-flex {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+.brewery-card {
+  width: 565px;
+  height: 200px;
+  border: 1px solid #f9b437;
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 20px;
+}
+
+.info-flex {
+  display: flex;
+  justify-content: center;
+  padding: 15px 20px;
+  height: 200px;
+}
+
+.brewery-info {
+  font-family: 'Montserrat', sans-serif;
+  width: 255px;
+  height: 135px;
+}
+
+.brewery-info > h3 {
+  font-size: 16px;
+  text-decoration: underline;
+  margin: 0;
+  text-align: center;
+}
+
+.brewery-info > ul {
+  padding-top: 10px;
+  list-style: none;
+  padding-left: 5px;
+}
+
+.brewery-info li {
+  font-size: 12px;
+  margin-bottom: 10px;
+}
+
+.list-icons-flex {
+  display: flex;
+  height: 50px;
+  justify-content: flex-start;
+  align-items: flex-end;
+}
+
+.list-icons-flex i {
+  padding-left: 15px;
+}
+
+.map-flex {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 200px;
+}
+
+.brewery-map {
+  border: 1px solid #f9b437;
+  width: 230px;
+  height: 170px;
+}
+
+.map-image {
+  height: 100%;
+  width: 100%;
+  object-fit: contain;
+}
+
+/* ----------FOOTER---------- */
+
+.footer {
+  position: fixed;
+  background-color: #f9b437;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  color: white;
+  height: 45px;
+  font-size: 14px;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.icon-flex {
+  width: 70px;
+  height: 45px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0 auto;
+}
+
+/* ----------PSEUDO-CLASSES---------- */
+
+.search-flex > input:focus {
+  outline: none;
+  border-radius: 10px;
+  border: 1px solid black;
+}
+
+.search-flex i {
+  cursor: pointer;
+}
+
+.logo-flex > h1:hover {
+  cursor: pointer;
+  color: black;
+}
+
+.nav-links-flex > i:hover {
+  cursor: pointer;
+  color: black;
+}
+
+.nav-links-flex > p:hover {
+  cursor: pointer;
+  color: black;
+}
+
+.local-button-flex > button:hover {
+  cursor: pointer;
+  background-color: rgb(249, 180, 55, 0.8);
+}
+
+.icon-flex > i:hover {
+  cursor: pointer;
+  color: black;
+}
+
+.list-icons-flex i:first-child {
+  color: #f9b437;
+}
+
+.list-icons-flex i:last-child {
+  color: #ff4033;
+}
+
+/* ----------MEDIA QUERIES---------- */
+
+@media only screen and (max-width: 1000px) {
+  .column-half {
+    flex-basis: 100%;
+  }
+
+  .column-third {
+    flex-basis: 100%;
+  }
+
+  .main {
+    margin: 45px auto 50px;
+  }
+
+  .img-content {
+    padding: 40px 0 0 0;
+  }
+
+  .main h1 {
+    padding-top: 15px;
+    font-size: 44px;
+  }
+
+  .local-button-flex {
+    margin-bottom: 45px;
+  }
+
+  .height-120 {
+    height: 100px;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .column-half {
+    flex-basis: 100%;
+  }
+
+  .column-third {
+    flex-basis: 100%;
+  }
+
+  .main {
+    margin: 45px auto 100px;
+  }
+
+  .img-content {
+    padding: 40px 0 0 0;
+  }
+
+  .main h1 {
+    padding-top: 0;
+    font-size: 36px;
+  }
+
+  .local-button-flex {
+    margin-bottom: 0;
+  }
+
+  .brewery-card {
+    width: 430px;
+    height: 200px;
+  }
+
+  .brewery-map {
+    width: 100px;
+    height: 100px;
+  }
+
+  .mobile-view-local {
+    height: 90px;
+  }
+
+  .border-bottom {
+    margin: 0 40px;
+  }
+
+  .height-120 {
+    height: 75px;
+  }
+}
