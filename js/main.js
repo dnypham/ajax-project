@@ -1,25 +1,10 @@
-// Click GitHub icon to go to GitHub profile
-
-var $github = document.querySelector('#github');
-
-$github.addEventListener('click', function () {
-  window.open('https://github.com/dnypham');
-});
-
-// Click LinkedIn icon to go to LinkedIn profile
-
-var $linkedin = document.querySelector('#linkedin');
-
-$linkedin.addEventListener('click', function () {
-  window.open('https://www.linkedin.com/in/daniel-pham-10/');
-});
-
 // Click app name in header to go to Homepage View
 
 var $homepage = document.querySelector('h1');
 var $homepageView = document.querySelector('main[data-view="homepage"]');
 var $localButton = document.querySelector('#local-button');
 var $localView = document.querySelector('main[data-view="local"]');
+var $header = document.querySelector('#dynamic-header');
 
 $homepage.addEventListener('click', function (event) {
   $homepageView.classList.remove('hidden');
@@ -33,6 +18,7 @@ $homepage.addEventListener('click', function (event) {
 $localButton.addEventListener('click', function (event) {
   $localView.classList.remove('hidden');
   $homepageView.classList.add('hidden');
+  $header.textContent = 'Local Breweries';
 
   var ipgeo = new XMLHttpRequest();
 
@@ -40,10 +26,11 @@ $localButton.addEventListener('click', function (event) {
   ipgeo.responseType = 'json';
 
   ipgeo.addEventListener('load', function () {
-    var city = ipgeo.response.city;
+    var latitude = ipgeo.response.lat;
+    var longitude = ipgeo.response.lon;
     var openBreweryDB = new XMLHttpRequest();
 
-    openBreweryDB.open('GET', 'https://api.openbrewerydb.org/breweries?by_city=' + city);
+    openBreweryDB.open('GET', 'https://api.openbrewerydb.org/breweries?by_dist=' + latitude + ',' + longitude);
     openBreweryDB.responseType = 'json';
 
     openBreweryDB.addEventListener('load', function () {
@@ -59,6 +46,43 @@ $localButton.addEventListener('click', function (event) {
 
   ipgeo.send();
 
+});
+
+// Search for breweries in a city when clicking enter.
+
+var $searchBar = document.querySelector('#search-bar');
+
+$searchBar.addEventListener('keydown', function (event) {
+  if (event.keyCode === 13) {
+
+    var breweryCount = 0;
+    $homepageView.classList.add('hidden');
+    $localView.classList.remove('hidden');
+    $parentDiv.innerHTML = '';
+    var city = $searchBar.value;
+    var openBreweryDB = new XMLHttpRequest();
+
+    openBreweryDB.open('GET', 'https://api.openbrewerydb.org/breweries?by_city=' + city);
+    openBreweryDB.responseType = 'json';
+
+    openBreweryDB.addEventListener('load', function () {
+      var breweries = openBreweryDB.response;
+
+      for (var i = 0; i < breweries.length; i++) {
+        $parentDiv.appendChild(renderBreweries(breweries[i]));
+        breweryCount++;
+      }
+
+      if (breweryCount > 0) {
+        $header.textContent = city + ' ' + 'Breweries';
+      } else {
+        $header.textContent = 'No Breweries Found in' + ' ' + '"' + city + '"';
+      }
+      $searchBar.value = '';
+    });
+
+    openBreweryDB.send();
+  }
 });
 
 // Function to Render Brewery Cards
@@ -115,7 +139,15 @@ function renderBreweries(breweries) {
   } else {
     breweries.street = breweries.street + ', ';
   }
-  $li2.textContent = breweries.street + breweries.city + ', ' + breweries.state;
+  if (breweries.city === null) {
+    breweries.city = '';
+  } else {
+    breweries.city = breweries.city + ', ';
+  }
+  if (breweries.state === null) {
+    breweries.state = '';
+  }
+  $li2.textContent = breweries.street + breweries.city + breweries.state;
   $ul.appendChild($li2);
 
   var $li3 = document.createElement('li');
