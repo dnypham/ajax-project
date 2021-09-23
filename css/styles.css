@@ -281,6 +281,70 @@
 
 /* ----------MEDIA QUERIES---------- */
 
+@media only screen and (max-width: 1000px) {
+  .column-half {
+    flex-basis: 100%;
+  }
+
+  .column-third {
+    flex-basis: 100%;
+  }
+
+  .main {
+    margin: 45px auto 50px;
+  }
+
+  .img-content {
+    padding: 40px 0 0 0;
+  }
+
+  .main h1 {
+    padding-top: 15px;
+    font-size: 44px;
+  }
+
+  .local-button-flex {
+    margin-bottom: 45px;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .column-half {
+    flex-basis: 100%;
+  }
+
+  .column-third {
+    flex-basis: 100%;
+  }
+
+  .main {
+    margin: 45px auto 100px;
+  }
+
+  .img-content {
+    padding: 40px 0 0 0;
+  }
+
+  .main h1 {
+    padding-top: 0;
+    font-size: 40px;
+  }
+
+  .local-button-flex {
+    margin-bottom: 0;
+  }
+
+  .brewery-card {
+    width: 430px;
+    height: 200px;
+  }
+
+  .brewery-map {
+    width: 100px;
+    height: 100px;
+  }
+}
+
 /* @media only screen and (max-width: 951px) {
   .main h1 {
     font-size: 62px;

@@ -152,8 +152,8 @@ function renderBreweries(breweries) {
 
   if (breweries.latitude && breweries.longitude) {
     $map.setAttribute('src', 'https://maps.google.com/maps?q=' + breweries.latitude + ',' + breweries.longitude + '&z=15&output=embed');
-    $map.setAttribute('width', '228');
-    $map.setAttribute('height', '168');
+    $map.setAttribute('width', '100%');
+    $map.setAttribute('height', '100%');
     $map.setAttribute('frameborder', '0');
     $map.setAttribute('style', 'border: 0;');
     $breweryMap.appendChild($map);
