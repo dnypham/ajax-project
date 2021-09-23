@@ -242,6 +242,12 @@ $parentDiv.addEventListener('click', function (event) {
       for (var x = 0; x < data.favorites.length; x++) {
         if (Number.parseInt(event.target.getAttribute('data-id')) === data.favorites[x].id) {
           data.favorites.splice(x, 1);
+          if ($header.textContent === 'Favorites') {
+            $parentDiv.innerHTML = '';
+            for (var i = 0; i < data.favorites.length; i++) {
+              $parentDiv.appendChild(renderBreweries(data.favorites[i]));
+            }
+          }
         }
       }
     }
