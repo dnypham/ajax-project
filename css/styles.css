@@ -306,6 +306,10 @@
   .local-button-flex {
     margin-bottom: 45px;
   }
+
+  .height-120 {
+    height: 100px;
+  }
 }
 
 @media only screen and (max-width: 600px) {
@@ -327,7 +331,7 @@
 
   .main h1 {
     padding-top: 0;
-    font-size: 40px;
+    font-size: 36px;
   }
 
   .local-button-flex {
@@ -346,5 +350,13 @@
 
   .mobile-view-local {
     height: 90px;
+  }
+
+  .border-bottom {
+    margin: 0 40px;
+  }
+
+  .height-120 {
+    height: 75px;
   }
 }
