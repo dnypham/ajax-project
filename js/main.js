@@ -100,7 +100,15 @@ function renderBreweries(breweries) {
   } else {
     breweries.street = breweries.street + ', ';
   }
-  $li2.textContent = breweries.street + breweries.city + ', ' + breweries.state;
+  if (breweries.city === null) {
+    breweries.city = '';
+  } else {
+    breweries.city = breweries.city + ', ';
+  }
+  if (breweries.state === null) {
+    breweries.state = '';
+  }
+  $li2.textContent = breweries.street + breweries.city + breweries.state;
   $ul.appendChild($li2);
 
   var $li3 = document.createElement('li');
