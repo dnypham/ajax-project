@@ -24,10 +24,11 @@ $localButton.addEventListener('click', function (event) {
   ipgeo.responseType = 'json';
 
   ipgeo.addEventListener('load', function () {
-    var city = ipgeo.response.city;
+    var latitude = ipgeo.response.lat;
+    var longitude = ipgeo.response.lon;
     var openBreweryDB = new XMLHttpRequest();
 
-    openBreweryDB.open('GET', 'https://api.openbrewerydb.org/breweries?by_city=' + city);
+    openBreweryDB.open('GET', 'https://api.openbrewerydb.org/breweries?by_dist=' + latitude + ',' + longitude);
     openBreweryDB.responseType = 'json';
 
     openBreweryDB.addEventListener('load', function () {
