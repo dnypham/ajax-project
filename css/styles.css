@@ -154,6 +154,10 @@
   border-radius: 20px;
 }
 
+.heart-container {
+  position: relative;
+}
+
 .info-flex {
   display: flex;
   justify-content: center;
@@ -185,15 +189,11 @@
   margin-bottom: 10px;
 }
 
-.list-icons-flex {
-  display: flex;
-  height: 50px;
-  justify-content: flex-start;
-  align-items: flex-end;
-}
-
-.list-icons-flex i {
-  padding-left: 15px;
+.brewery-card i {
+  position: absolute;
+  bottom: 10px;
+  left: 25px;
+  color: #ff4033;
 }
 
 .map-flex {
@@ -287,12 +287,8 @@
   color: black;
 }
 
-.list-icons-flex i:first-child {
-  color: #f9b437;
-}
-
-.list-icons-flex i:last-child {
-  color: #ff4033;
+.brewery-card i:hover {
+  cursor: pointer;
 }
 
 /* ----------MEDIA QUERIES---------- */

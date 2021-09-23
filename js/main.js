@@ -107,6 +107,7 @@ function renderBreweries(breweries) {
 
   var $col1 = document.createElement('div');
   $col1.setAttribute('class', 'column-half');
+  $col1.setAttribute('class', 'heart-container');
   $row.appendChild($col1);
 
   var $infoFlex = document.createElement('div');
@@ -161,17 +162,10 @@ function renderBreweries(breweries) {
   }
   $li3.appendChild($a);
 
-  var $listIconsFlex = document.createElement('div');
-  $listIconsFlex.setAttribute('class', 'list-icons-flex');
-  $breweryInfo.appendChild($listIconsFlex);
-
   var $i1 = document.createElement('i');
-  $i1.setAttribute('class', 'far fa-bookmark fa-2x');
-  $listIconsFlex.appendChild($i1);
-
-  var $i2 = document.createElement('i');
-  $i2.setAttribute('class', 'far fa-heart fa-2x');
-  $listIconsFlex.appendChild($i2);
+  $i1.setAttribute('class', 'far fa-heart fa-2x');
+  $i1.setAttribute('id', 'heart');
+  $col1.appendChild($i1);
 
   var $col2 = document.createElement('div');
   $col2.setAttribute('class', 'column-half');
