@@ -13,6 +13,7 @@
   top: 0;
   left: 0;
   right: 0;
+  z-index: 1000;
 }
 
 .logo-flex {
@@ -73,7 +74,7 @@
 }
 
 .img-content {
-  padding: 40px 0 20px;
+  padding: 40px 0 10px;
 }
 
 .image-container {
@@ -91,12 +92,15 @@
   box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
   border-radius: 20px;
   object-fit: cover;
+  transform: scale(1);
+  transition-duration: 0.5s;
 }
 
 .img-content > p {
   font-family: 'Montserrat', sans-serif;
   font-size: 14px;
   text-align: center;
+  padding-top: 10px;
 }
 
 .center-image {
@@ -110,7 +114,7 @@
   flex-wrap: wrap;
   justify-content: center;
   align-content: center;
-  height: 40px;
+  height: 30px;
   margin-top: 30px;
   margin-left: auto;
   margin-right: auto;
@@ -240,6 +244,10 @@
 
 /* ----------PSEUDO-CLASSES---------- */
 
+.main h1:hover {
+  cursor: default;
+}
+
 .search-flex > input:focus {
   outline: none;
   border-radius: 10px;
@@ -263,6 +271,10 @@
 .nav-links-flex > p:hover {
   cursor: pointer;
   color: black;
+}
+
+.image-container > img:hover {
+  transform: scale(1.1);
 }
 
 .local-button-flex > button:hover {
