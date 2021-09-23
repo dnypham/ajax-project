@@ -4,6 +4,7 @@ var $homepage = document.querySelector('h1');
 var $homepageView = document.querySelector('main[data-view="homepage"]');
 var $localButton = document.querySelector('#local-button');
 var $localView = document.querySelector('main[data-view="local"]');
+var $header = document.querySelector('#dynamic-header');
 
 $homepage.addEventListener('click', function (event) {
   $homepageView.classList.remove('hidden');
@@ -17,6 +18,7 @@ $homepage.addEventListener('click', function (event) {
 $localButton.addEventListener('click', function (event) {
   $localView.classList.remove('hidden');
   $homepageView.classList.add('hidden');
+  $header.textContent = 'Local Breweries';
 
   var ipgeo = new XMLHttpRequest();
 
@@ -44,6 +46,33 @@ $localButton.addEventListener('click', function (event) {
 
   ipgeo.send();
 
+});
+
+// Search for breweries in a city when clicking enter.
+
+var $searchBar = document.querySelector('#search-bar');
+
+$searchBar.addEventListener('keydown', function (event) {
+  if (event.keyCode === 13) {
+    $parentDiv.innerHTML = '';
+    var city = $searchBar.value;
+    var openBreweryDB = new XMLHttpRequest();
+
+    openBreweryDB.open('GET', 'https://api.openbrewerydb.org/breweries?by_city=' + city);
+    openBreweryDB.responseType = 'json';
+
+    openBreweryDB.addEventListener('load', function () {
+      var breweries = openBreweryDB.response;
+
+      for (var i = 0; i < breweries.length; i++) {
+        $parentDiv.appendChild(renderBreweries(breweries[i]));
+      }
+    });
+
+    openBreweryDB.send();
+    $searchBar.value = '';
+    $header.textContent = 'Breweries in' + ' ' + city;
+  }
 });
 
 // Function to Render Brewery Cards
