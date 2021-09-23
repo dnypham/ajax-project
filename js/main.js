@@ -173,7 +173,15 @@ function renderBreweries(breweries) {
   $li3.appendChild($a);
 
   var $i1 = document.createElement('i');
+
   $i1.setAttribute('class', 'far fa-heart fa-2x');
+
+  for (var i = 0; i < data.favorites.length; i++) {
+    if (data.favorites[i].id === breweries.id) {
+      $i1.setAttribute('class', 'fas fa-heart fa-2x');
+    }
+  }
+
   $i1.setAttribute('id', 'heart');
   $i1.setAttribute('data-id', breweries.id);
   $col1.appendChild($i1);
@@ -224,12 +232,6 @@ $parentDiv.addEventListener('click', function (event) {
 
       openBreweryDB.addEventListener('load', function () {
         data.favorites.push(openBreweryDB.response);
-
-        for (var i = 0; i < data.favorites.length; i++) {
-          if (Number.parseInt(event.target.getAttribute('data-id')) === data.favorites[i].id) {
-            data.favorites[i].heart = 'on';
-          }
-        }
       });
 
       openBreweryDB.send();
@@ -239,7 +241,6 @@ $parentDiv.addEventListener('click', function (event) {
 
       for (var x = 0; x < data.favorites.length; x++) {
         if (Number.parseInt(event.target.getAttribute('data-id')) === data.favorites[x].id) {
-          data.favorites[x].heart = 'off';
           data.favorites.splice(x, 1);
         }
       }
