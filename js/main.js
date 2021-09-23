@@ -121,6 +121,7 @@ function renderBreweries(breweries) {
   if (breweries.website_url) {
     $a.textContent = breweries.website_url.slice(7);
     $a.setAttribute('href', breweries.website_url);
+    $a.setAttribute('target', '_blank');
   }
   $li3.appendChild($a);
 
