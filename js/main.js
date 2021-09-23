@@ -197,3 +197,15 @@ function renderBreweries(breweries) {
 
   return $col3;
 }
+
+// Event listener to toggle hearts
+
+$parentDiv.addEventListener('click', function (event) {
+  if (event.target.matches('#heart')) {
+    if (event.target.className === 'far fa-heart fa-2x') {
+      event.target.className = 'fas fa-heart fa-2x';
+    } else {
+      event.target.className = 'far fa-heart fa-2x';
+    }
+  }
+});
