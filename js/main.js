@@ -101,8 +101,12 @@ function renderBreweries(breweries) {
   $breweryInfo.appendChild($ul);
 
   var $li1 = document.createElement('li');
-  var phoneString = '(' + breweries.phone.slice(0, 3) + ')' + ' ' + breweries.phone.slice(3, 6) + '-' + breweries.phone.slice(6);
-  $li1.textContent = phoneString;
+  if (breweries.phone) {
+    breweries.phone = '(' + breweries.phone.slice(0, 3) + ')' + ' ' + breweries.phone.slice(3, 6) + '-' + breweries.phone.slice(6);
+  } else {
+    breweries.phone = '';
+  }
+  $li1.textContent = breweries.phone;
   $ul.appendChild($li1);
 
   var $li2 = document.createElement('li');
