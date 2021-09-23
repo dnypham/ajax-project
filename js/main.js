@@ -54,6 +54,8 @@ var $searchBar = document.querySelector('#search-bar');
 
 $searchBar.addEventListener('keydown', function (event) {
   if (event.keyCode === 13) {
+    $homepageView.classList.add('hidden');
+    $localView.classList.remove('hidden');
     $parentDiv.innerHTML = '';
     var city = $searchBar.value;
     var openBreweryDB = new XMLHttpRequest();
@@ -71,7 +73,7 @@ $searchBar.addEventListener('keydown', function (event) {
 
     openBreweryDB.send();
     $searchBar.value = '';
-    $header.textContent = 'Breweries in' + ' ' + city;
+    $header.textContent = city + ' ' + 'Breweries';
   }
 });
 
