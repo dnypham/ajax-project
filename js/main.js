@@ -51,18 +51,19 @@ $localButton.addEventListener('click', function (event) {
 // Search for breweries in a city when clicking enter.
 
 var $searchBar = document.querySelector('#search-bar');
+var breweryCount = 0;
+var city;
 
 $searchBar.addEventListener('keydown', function (event) {
   if (event.keyCode === 13) {
 
-    var breweryCount = 0;
     $homepageView.classList.add('hidden');
     $localView.classList.remove('hidden');
     $parentDiv.innerHTML = '';
-    var city = $searchBar.value;
+    city = $searchBar.value;
     var openBreweryDB = new XMLHttpRequest();
 
-    openBreweryDB.open('GET', 'https://api.openbrewerydb.org/breweries?by_city=' + city);
+    openBreweryDB.open('GET', 'https://api.openbrewerydb.org/breweries?page=' + pageNumber + '&' + 'per_page=20' + '&' + 'by_city=' + city);
     openBreweryDB.responseType = 'json';
 
     openBreweryDB.addEventListener('load', function () {
@@ -289,6 +290,8 @@ $favorites.addEventListener('click', function (event) {
   }
 });
 
+//  Event listener to toggle arrow icons.
+
 var $arrowRight = document.querySelector('#arrow-right');
 var $arrowLeft = document.querySelector('#arrow-left');
 
@@ -306,4 +309,66 @@ $arrowLeft.addEventListener('mouseover', function (event) {
 
 $arrowLeft.addEventListener('mouseout', function (event) {
   $arrowLeft.className = 'far fa-arrow-alt-circle-left fa-2x';
+});
+
+// Function to change brewery results
+
+var pageNumber = 1;
+
+$arrowLeft.addEventListener('click', function (event) {
+  if (pageNumber > 1) {
+    pageNumber--;
+
+    $parentDiv.innerHTML = '';
+    var openBreweryDB = new XMLHttpRequest();
+
+    openBreweryDB.open('GET', 'https://api.openbrewerydb.org/breweries?page=' + pageNumber + '&' + 'per_page=20' + '&' + 'by_city=' + city);
+    openBreweryDB.responseType = 'json';
+
+    openBreweryDB.addEventListener('load', function () {
+      var breweries = openBreweryDB.response;
+
+      for (var i = 0; i < breweries.length; i++) {
+        $parentDiv.appendChild(renderBreweries(breweries[i]));
+        breweryCount++;
+      }
+
+      if (breweryCount > 0) {
+        $header.textContent = city + ' ' + 'Breweries';
+      } else {
+        $header.textContent = 'No Breweries Found in' + ' ' + '"' + city + '"';
+      }
+      $searchBar.value = '';
+    });
+
+    openBreweryDB.send();
+  }
+
+});
+
+$arrowRight.addEventListener('click', function (event) {
+  pageNumber++;
+  $parentDiv.innerHTML = '';
+  var openBreweryDB = new XMLHttpRequest();
+
+  openBreweryDB.open('GET', 'https://api.openbrewerydb.org/breweries?page=' + pageNumber + '&' + 'per_page=20' + '&' + 'by_city=' + city);
+  openBreweryDB.responseType = 'json';
+
+  openBreweryDB.addEventListener('load', function () {
+    var breweries = openBreweryDB.response;
+
+    for (var i = 0; i < breweries.length; i++) {
+      $parentDiv.appendChild(renderBreweries(breweries[i]));
+      breweryCount++;
+    }
+
+    if (breweryCount > 0) {
+      $header.textContent = city + ' ' + 'Breweries';
+    } else {
+      $header.textContent = 'No Breweries Found in' + ' ' + '"' + city + '"';
+    }
+    $searchBar.value = '';
+  });
+
+  openBreweryDB.send();
 });
