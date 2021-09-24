@@ -288,3 +288,22 @@ $favorites.addEventListener('click', function (event) {
     $parentDiv.appendChild(renderBreweries(data.favorites[i]));
   }
 });
+
+var $arrowRight = document.querySelector('#arrow-right');
+var $arrowLeft = document.querySelector('#arrow-left');
+
+$arrowRight.addEventListener('mouseover', function (event) {
+  $arrowRight.className = 'fas fa-arrow-alt-circle-right fa-2x';
+});
+
+$arrowRight.addEventListener('mouseout', function (event) {
+  $arrowRight.className = 'far fa-arrow-alt-circle-right fa-2x';
+});
+
+$arrowLeft.addEventListener('mouseover', function (event) {
+  $arrowLeft.className = 'fas fa-arrow-alt-circle-left fa-2x';
+});
+
+$arrowLeft.addEventListener('mouseout', function (event) {
+  $arrowLeft.className = 'far fa-arrow-alt-circle-left fa-2x';
+});

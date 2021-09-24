@@ -218,6 +218,18 @@
   object-fit: contain;
 }
 
+.arrow-container {
+  display: flex;
+  justify-content: center;
+}
+
+.page-arrows {
+  display: flex;
+  justify-content: space-between;
+  color: #f9b437;
+  width: 120px;
+}
+
 /* ----------POPUP-MODAL---------- */
 
 .pop-up-container {
@@ -358,6 +370,10 @@
 .confirm-button:hover {
   cursor: pointer;
   background-color: rgb(255, 64, 51, 0.8);
+}
+
+.page-arrows > i:hover {
+  cursor: pointer;
 }
 
 /* ----------MEDIA QUERIES---------- */
