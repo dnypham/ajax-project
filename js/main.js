@@ -325,6 +325,7 @@ var pageNumber = 1;
 $arrowLeft.addEventListener('click', function (event) {
   if (pageNumber > 1) {
     pageNumber--;
+    breweryCount = 0;
 
     $parentDiv.innerHTML = '';
     var openBreweryDB = new XMLHttpRequest();
@@ -356,28 +357,32 @@ $arrowLeft.addEventListener('click', function (event) {
 // Event listener to change page results
 
 $arrowRight.addEventListener('click', function (event) {
-  pageNumber++;
-  $parentDiv.innerHTML = '';
-  var openBreweryDB = new XMLHttpRequest();
 
-  openBreweryDB.open('GET', 'https://api.openbrewerydb.org/breweries?page=' + pageNumber + '&' + 'per_page=20' + '&' + 'by_city=' + city);
-  openBreweryDB.responseType = 'json';
+  if (breweryCount === 20) {
+    breweryCount = 0;
+    pageNumber++;
+    $parentDiv.innerHTML = '';
+    var openBreweryDB = new XMLHttpRequest();
 
-  openBreweryDB.addEventListener('load', function () {
-    var breweries = openBreweryDB.response;
+    openBreweryDB.open('GET', 'https://api.openbrewerydb.org/breweries?page=' + pageNumber + '&' + 'per_page=20' + '&' + 'by_city=' + city);
+    openBreweryDB.responseType = 'json';
 
-    for (var i = 0; i < breweries.length; i++) {
-      $parentDiv.appendChild(renderBreweries(breweries[i]));
-      breweryCount++;
-    }
+    openBreweryDB.addEventListener('load', function () {
+      var breweries = openBreweryDB.response;
 
-    if (breweryCount > 0) {
-      $header.textContent = city + ' ' + 'Breweries';
-    } else {
-      $header.textContent = 'No Breweries Found in' + ' ' + '"' + city + '"';
-    }
-    $searchBar.value = '';
-  });
+      for (var i = 0; i < breweries.length; i++) {
+        $parentDiv.appendChild(renderBreweries(breweries[i]));
+        breweryCount++;
+      }
 
-  openBreweryDB.send();
+      if (breweryCount > 0) {
+        $header.textContent = city + ' ' + 'Breweries';
+      } else {
+        $header.textContent = 'No Breweries Found in' + ' ' + '"' + city + '"';
+      }
+      $searchBar.value = '';
+    });
+
+    openBreweryDB.send();
+  }
 });
