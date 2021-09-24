@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu&display=swap');
 
 /* ----------NAVIGATION BAR---------- */
 
@@ -217,6 +218,61 @@
   object-fit: contain;
 }
 
+/* ----------POPUP-MODAL---------- */
+
+.pop-up-container {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(34, 33, 33, 0.9);
+  z-index: 10000;
+}
+
+.pop-up {
+  font-family: 'Ubuntu', sans-serif;
+  background-color: whitesmoke;
+  width: 500px;
+  height: 250px;
+  border-radius: 20px;
+  border: none;
+  text-align: center;
+  padding-top: 10px;
+  letter-spacing: 3px;
+}
+
+.pop-up > h4 {
+  font-size: 36px;
+}
+
+.button-container {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 80px;
+}
+
+.button-container > button {
+  height: 50px;
+  width: 125px;
+  color: whitesmoke;
+  border: none;
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 8px;
+  font-size: 22px;
+}
+
+.cancel-button {
+  background-color: #f9b437;
+}
+
+.confirm-button {
+  background-color: #ff4033;
+}
+
 /* ----------FOOTER---------- */
 
 .footer {
@@ -292,6 +348,16 @@
 .brewery-card i:hover {
   cursor: pointer;
   transform: scale(1.1);
+}
+
+.cancel-button:hover {
+  cursor: pointer;
+  background-color: rgb(249, 180, 55, 0.8);
+}
+
+.confirm-button:hover {
+  cursor: pointer;
+  background-color: rgb(255, 64, 51, 0.8);
 }
 
 /* ----------MEDIA QUERIES---------- */
