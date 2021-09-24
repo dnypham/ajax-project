@@ -5,17 +5,21 @@ var $homepageView = document.querySelector('main[data-view="homepage"]');
 var $localButton = document.querySelector('#local-button');
 var $localView = document.querySelector('main[data-view="local"]');
 var $header = document.querySelector('#dynamic-header');
+var $pageResultsContainer = document.querySelector('#page-results-container');
 
 $homepage.addEventListener('click', function (event) {
   $homepageView.classList.remove('hidden');
   $localView.classList.add('hidden');
+  $pageResultsContainer.classList.add('hidden');
 
   $parentDiv.innerHTML = '';
+  pageNumber = 1;
 });
 
 // Click local button to go to Local Breweries View
 
 $localButton.addEventListener('click', function (event) {
+
   $localView.classList.remove('hidden');
   $homepageView.classList.add('hidden');
   $header.textContent = 'Local Breweries';
@@ -59,6 +63,7 @@ $searchBar.addEventListener('keydown', function (event) {
 
     $homepageView.classList.add('hidden');
     $localView.classList.remove('hidden');
+    $pageResultsContainer.classList.remove('hidden');
     $parentDiv.innerHTML = '';
     city = $searchBar.value;
     var openBreweryDB = new XMLHttpRequest();
@@ -275,7 +280,7 @@ $modal.addEventListener('click', function (event) {
   }
 });
 
-// Rendering back saved list.
+// Favorites list
 
 var $favorites = document.querySelector('#favorites-list');
 
@@ -283,11 +288,13 @@ $favorites.addEventListener('click', function (event) {
   $parentDiv.innerHTML = '';
   $localView.classList.remove('hidden');
   $homepageView.classList.add('hidden');
+  $pageResultsContainer.classList.add('hidden');
   $header.textContent = 'Favorites';
 
   for (var i = 0; i < data.favorites.length; i++) {
     $parentDiv.appendChild(renderBreweries(data.favorites[i]));
   }
+  pageNumber = 1;
 });
 
 //  Event listener to toggle arrow icons.
@@ -345,6 +352,8 @@ $arrowLeft.addEventListener('click', function (event) {
   }
 
 });
+
+// Event listener to change page results
 
 $arrowRight.addEventListener('click', function (event) {
   pageNumber++;
