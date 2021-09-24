@@ -47,6 +47,10 @@
   padding: 0 10px;
 }
 
+.search-flex > #search-toggle {
+  margin-left: 10px;
+}
+
 .nav-links-flex {
   height: 45px;
   display: flex;
@@ -326,6 +330,10 @@
 
 .search-flex i {
   cursor: pointer;
+}
+
+.search-flex > #search-toggle:hover {
+  color: black;
 }
 
 .logo-flex > h1:hover {
