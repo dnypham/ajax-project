@@ -220,6 +220,7 @@ function renderBreweries(breweries) {
 // Event listener to toggle hearts
 
 var $modal = document.querySelector('#popup');
+var editId;
 
 $parentDiv.addEventListener('click', function (event) {
   if (event.target.matches('#heart')) {
@@ -239,6 +240,7 @@ $parentDiv.addEventListener('click', function (event) {
       openBreweryDB.send();
 
     } else {
+      editId = event.target.getAttribute('data-id');
       $modal.classList.remove('hidden');
     }
   }
@@ -252,10 +254,12 @@ $modal.addEventListener('click', function (event) {
   }
 
   if (event.target.textContent === 'CONFIRM') {
-    event.target.className = 'far fa-heart fa-2x';
+
+    var breweryEdit = document.querySelector('[data-id="' + editId + '"]');
+    breweryEdit.className = 'far fa-heart fa-2x';
 
     for (var x = 0; x < data.favorites.length; x++) {
-      if (Number.parseInt(event.target.getAttribute('data-id')) === data.favorites[x].id) {
+      if (Number.parseInt(breweryEdit.getAttribute('data-id')) === data.favorites[x].id) {
         data.favorites.splice(x, 1);
         if ($header.textContent === 'Favorites') {
           $parentDiv.innerHTML = '';
@@ -265,6 +269,7 @@ $modal.addEventListener('click', function (event) {
         }
       }
     }
+    editId = '';
     $modal.classList.add('hidden');
   }
 });
