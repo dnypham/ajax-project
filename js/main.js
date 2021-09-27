@@ -27,7 +27,7 @@ $localButton.addEventListener('click', function (event) {
 
   var ipgeo = new XMLHttpRequest();
 
-  ipgeo.open('GET', 'http://api.techniknews.net/ipgeo/');
+  ipgeo.open('GET', 'https://api.techniknews.net/ipgeo/');
   ipgeo.responseType = 'json';
 
   ipgeo.addEventListener('load', function () {
