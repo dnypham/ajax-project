@@ -318,7 +318,7 @@
   font-family: 'Bebas Neue', sans-serif;
   text-align: center;
   font-size: 72px;
-  margin-top: 20px;
+  margin-top: 15px;
   margin-bottom: 10px;
   letter-spacing: 2px;
 }
@@ -351,7 +351,7 @@
 
 .sign-in button {
   width: 100px;
-  height: 25px;
+  height: 30px;
   background-color: #f9b437;
   color: white;
   border-radius: 5px;
