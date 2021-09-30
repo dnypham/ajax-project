@@ -110,54 +110,76 @@
 
   <main class="main hidden" data-view="sign-in">
     <div class="sign-in-container">
-      <form>
-        <div class="sign-in">
-          <div class="row flex-wrap">
-            <div class="column-full">
-              <h2>SIGN IN</h2>
-            </div>
-            <div class="column-full existing-users-container">
+      <div class="sign-in">
+        <div class="row flex-wrap">
+          <div class="column-full">
+            <h2>SIGN IN</h2>
+          </div>
+          <div class="column-full existing-users-container">
+            <form>
               <div class="users">
-                <label>Username:
-                  <input type="text">
+                <label for="existing-username">Username:
+                  <input
+                  required
+                  type="text"
+                  id="existing-username"
+                  name="existingUsername">
                 </label>
               </div>
               <div class="users">
-                <label>Password:
-                  <input type="text">
+                <label for="existing-password">Password:
+                  <input
+                  required
+                  type="text"
+                  id="existing-password"
+                  name="existingPassword">
                 </label>
               </div>
               <div class="users">
                 <button>SIGN IN</button>
               </div>
-            </div>
-            <div class="column-full sign-up-text-container">
-              <p>Don't have an account?</p>
-              <p>Sign up below!</p>
-            </div>
-            <div class="column-full new-users-container">
+            </form>
+          </div>
+          <div class="column-full sign-up-text-container">
+            <p>Don't have an account?</p>
+            <p>Sign up below!</p>
+          </div>
+          <div class="column-full new-users-container">
+            <form>
               <div class="users">
-                <label>Username:
-                  <input type="text">
+                <label for="new-username">Username:
+                  <input
+                  required
+                  type="text"
+                  id="new-username"
+                  name="newUsername">
                 </label>
               </div>
               <div class="users">
-                <label>Password:
-                  <input type="text">
+                <label for="new-password">Password:
+                  <input
+                  required
+                  type="text"
+                  id="new-password"
+                  name="newPassword">
                 </label>
               </div>
               <div class="users">
-                <label>Confirm Password:
-                  <input type="text">
+                <label for="confirm-new-password">Confirm Password:
+                  <input
+                  required
+                  type="text"
+                  id="confirm-new-password"
+                  name="confirmNewPassword">
                 </label>
               </div>
               <div class="users">
                 <button>SIGN UP</button>
               </div>
-            </div>
+            </form>
           </div>
         </div>
-      </form>
+      </div>
     </div>
   </main>
 
