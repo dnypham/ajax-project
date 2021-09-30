@@ -4,17 +4,30 @@ var $homepage = document.querySelector('h1');
 var $homepageView = document.querySelector('main[data-view="homepage"]');
 var $localButton = document.querySelector('#local-button');
 var $localView = document.querySelector('main[data-view="local"]');
+var $signInButton = document.querySelector('#sign-in-button');
+var $signInView = document.querySelector('main[data-view="sign-in"]');
 var $header = document.querySelector('#dynamic-header');
 var $pageResultsContainer = document.querySelector('#page-results-container');
 
 $homepage.addEventListener('click', function (event) {
   $homepageView.classList.remove('hidden');
   $localView.classList.add('hidden');
+  $signInView.classList.add('hidden');
   $pageResultsContainer.classList.add('hidden');
 
   $parentDiv.innerHTML = '';
   pageNumber = 1;
   $searchBar.setAttribute('placeholder', 'Search by city...');
+});
+
+// Click Sign In to go to Sign In view
+
+$signInButton.addEventListener('click', function (event) {
+  $homepageView.classList.add('hidden');
+  $localView.classList.add('hidden');
+  $signInView.classList.remove('hidden');
+  $pageResultsContainer.classList.add('hidden');
+  pageNumber = 1;
 });
 
 // Click local button to go to Local Breweries View
@@ -23,6 +36,7 @@ $localButton.addEventListener('click', function (event) {
 
   $localView.classList.remove('hidden');
   $homepageView.classList.add('hidden');
+  $signInView.classList.add('hidden');
   $header.textContent = 'Local Breweries';
 
   var ipgeo = new XMLHttpRequest();
@@ -72,6 +86,7 @@ $searchBar.addEventListener('keydown', function (event) {
       pageNumber = 1;
       if ($searchBar.value) {
         $homepageView.classList.add('hidden');
+        $signInView.classList.add('hidden');
       }
       $pageResultsContainer.classList.remove('hidden');
       $parentDiv.innerHTML = '';
@@ -105,6 +120,7 @@ $searchBar.addEventListener('keydown', function (event) {
       pageNumber = 1;
       if ($searchBar.value) {
         $homepageView.classList.add('hidden');
+        $signInView.classList.add('hidden');
       }
       $pageResultsContainer.classList.add('hidden');
       $parentDiv.innerHTML = '';
