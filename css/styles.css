@@ -289,7 +289,7 @@
   background-color: #ff4033;
 }
 
-/* ----------SIGNIN---------- */
+/* ----------SIGN-IN-VIEW---------- */
 
 .sign-in-container {
   position: fixed;
@@ -346,7 +346,7 @@
 }
 
 .new-users-container input {
-  border: 1px solid #;
+  border: 1px solid #000;
 }
 
 .sign-in button {
