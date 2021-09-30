@@ -463,3 +463,23 @@ $searchToggle.addEventListener('click', function (event) {
     $searchBar.setAttribute('placeholder', 'Search by city...');
   }
 });
+
+// Sign Up Submit button event listener
+
+var $signUpForm = document.querySelector('#user-sign-up');
+var $signUpButton = document.querySelector('#sign-up-button');
+
+$signUpForm.addEventListener('submit', function (event) {
+  event.preventDefault();
+
+  var user = {
+    username: $signUpForm.newUsername.value,
+    password: $signUpForm.newPassword.value,
+    favorites: [],
+    userId: data2.nextUserId
+  };
+
+  data2.nextUserId++;
+
+  $signUpForm.reset();
+});

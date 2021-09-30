@@ -14,3 +14,9 @@ window.addEventListener('beforeunload', function (event) {
   var dataJSON = JSON.stringify(data);
   localStorage.setItem('javascript-local-storage', dataJSON);
 });
+
+var data2 = {
+  view: 'homepage',
+  users: [],
+  nextUserId: 1
+};
