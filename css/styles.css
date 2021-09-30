@@ -323,7 +323,7 @@
   letter-spacing: 2px;
 }
 
-.existing-users {
+.users {
   line-height: 40px;
 }
 
@@ -338,6 +338,7 @@
   width: 150px;
   height: 25px;
   border-radius: 5px;
+  padding: 0 10px;
 }
 
 .existing-users-container input {
@@ -345,7 +346,7 @@
 }
 
 .new-users-container input {
-  border: 1px solid #000;
+  border: 1px solid #;
 }
 
 .sign-in button {
@@ -477,6 +478,10 @@
 .sign-in button:hover {
   cursor: pointer;
   background-color: rgb(249, 180, 55, 0.8);
+}
+
+.sign-in input:focus {
+  outline: none;
 }
 
 /* ----------MEDIA QUERIES---------- */
