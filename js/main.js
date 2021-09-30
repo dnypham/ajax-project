@@ -352,6 +352,7 @@ $favorites.addEventListener('click', function (event) {
   $parentDiv.innerHTML = '';
   $localView.classList.remove('hidden');
   $homepageView.classList.add('hidden');
+  $signInView.classList.add('hidden');
   $pageResultsContainer.classList.add('hidden');
   $header.textContent = 'Favorites';
 
