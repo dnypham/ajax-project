@@ -303,6 +303,8 @@
 }
 
 .sign-in {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 14px;
   background-color: whitesmoke;
   width: 500px;
   height: 600px;
@@ -313,10 +315,12 @@
 }
 
 .sign-in h2 {
+  font-family: 'Bebas Neue', sans-serif;
   text-align: center;
   font-size: 72px;
   margin-top: 20px;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
+  letter-spacing: 2px;
 }
 
 .existing-users {
@@ -325,17 +329,45 @@
 
 .sign-in label {
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: center;
+  padding: 0 30px;
 }
 
 .sign-in input {
-  width: 180px;
+  width: 150px;
   height: 20px;
 }
 
 .sign-in button {
-  margin: 0 auto;
+  width: 100px;
+  height: 25px;
+  background-color: #f9b437;
+  color: white;
+  border-radius: 5px;
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+  border: none;
+  margin-left: 140px;
+  margin-top: 20px;
+}
+
+.sign-in p {
+  text-align: center;
+}
+
+.existing-users-container {
+  border-top: 1px solid black;
+  border-bottom: 1px solid black;
+  padding: 20px 0;
+}
+
+.new-users-container {
+  border-top: 1px solid black;
+  padding: 20px 0;
+}
+
+.sign-up-text-container {
+  padding: 10px 0;
 }
 
 /* ----------FOOTER---------- */
@@ -431,6 +463,11 @@
 
 .page-arrows > i:hover {
   cursor: pointer;
+}
+
+.sign-in button:hover {
+  cursor: pointer;
+  background-color: rgb(249, 180, 55, 0.8);
 }
 
 /* ----------MEDIA QUERIES---------- */
