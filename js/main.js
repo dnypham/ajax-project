@@ -25,9 +25,7 @@ $homepage.addEventListener('click', function (event) {
 // Click Sign In to go to Sign In view
 
 $signInButton.addEventListener('click', function (event) {
-  $homepageView.classList.add('hidden');
-  $localView.classList.add('hidden');
-  $signInView.classList.remove('hidden');
+  viewSwap('sign-in');
   $pageResultsContainer.classList.add('hidden');
   pageNumber = 1;
 });
@@ -36,9 +34,7 @@ $signInButton.addEventListener('click', function (event) {
 
 $localButton.addEventListener('click', function (event) {
 
-  $localView.classList.remove('hidden');
-  $homepageView.classList.add('hidden');
-  $signInView.classList.add('hidden');
+  viewSwap('local');
   $header.textContent = 'Local Breweries';
 
   var ipgeo = new XMLHttpRequest();
@@ -86,10 +82,6 @@ $searchBar.addEventListener('keydown', function (event) {
     if ($searchBar.getAttribute('placeholder') === 'Search by city...') {
       breweryCount = 0;
       pageNumber = 1;
-      if ($searchBar.value) {
-        $homepageView.classList.add('hidden');
-        $signInView.classList.add('hidden');
-      }
       $pageResultsContainer.classList.remove('hidden');
       $parentDiv.innerHTML = '';
       city = $searchBar.value;
@@ -116,14 +108,10 @@ $searchBar.addEventListener('keydown', function (event) {
       });
 
       openBreweryDB.send();
-      $localView.classList.remove('hidden');
+      viewSwap('local');
     } else {
       breweryCount = 0;
       pageNumber = 1;
-      if ($searchBar.value) {
-        $homepageView.classList.add('hidden');
-        $signInView.classList.add('hidden');
-      }
       $pageResultsContainer.classList.add('hidden');
       $parentDiv.innerHTML = '';
       breweryName = $searchBar.value;
@@ -151,7 +139,7 @@ $searchBar.addEventListener('keydown', function (event) {
       });
 
       openBreweryDB.send();
-      $localView.classList.remove('hidden');
+      viewSwap('local');
     }
 
   }
@@ -352,9 +340,7 @@ var $favorites = document.querySelector('#favorites-list');
 
 $favorites.addEventListener('click', function (event) {
   $parentDiv.innerHTML = '';
-  $localView.classList.remove('hidden');
-  $homepageView.classList.add('hidden');
-  $signInView.classList.add('hidden');
+  viewSwap('local');
   $pageResultsContainer.classList.add('hidden');
   $header.textContent = 'Favorites';
 
