@@ -1,3 +1,5 @@
+/* global data, data2 */
+
 // Click app name in header to go to Homepage View
 
 var $homepage = document.querySelector('h1');
@@ -467,7 +469,6 @@ $searchToggle.addEventListener('click', function (event) {
 // Sign Up Submit button event listener
 
 var $signUpForm = document.querySelector('#user-sign-up');
-var $signUpButton = document.querySelector('#sign-up-button');
 
 $signUpForm.addEventListener('submit', function (event) {
   event.preventDefault();
@@ -480,6 +481,29 @@ $signUpForm.addEventListener('submit', function (event) {
   };
 
   data2.nextUserId++;
+  data2.users.push(user);
 
   $signUpForm.reset();
 });
+
+// View Swap function
+
+function viewSwap(view) {
+  if (view === 'homepage') {
+    $localView.classList.add('hidden');
+    $signInView.classList.add('hidden');
+    $homepageView.classList.remove('hidden');
+
+    data2.view = 'homepage';
+  } else if (view === 'local') {
+    $signInView.classList.add('hidden');
+    $homepageView.classList.add('hidden');
+    $localView.classList.remove('hidden');
+
+    data2.view = 'local';
+  } else if (view === 'sign-in') {
+    $homepageView.classList.add('hidden');
+    $localView.classList.add('hidden');
+    $signInView.classList.remove('hidden');
+  }
+}
