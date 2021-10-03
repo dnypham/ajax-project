@@ -459,17 +459,19 @@ var $signUpForm = document.querySelector('#user-sign-up');
 $signUpForm.addEventListener('submit', function (event) {
   event.preventDefault();
 
-  var user = {
-    username: $signUpForm.newUsername.value,
-    password: $signUpForm.newPassword.value,
-    favorites: [],
-    userId: data2.nextUserId
-  };
+  if ($signUpForm.newPassword.value === $signUpForm.confirmNewPassword.value) {
+    var user = {
+      username: $signUpForm.newUsername.value,
+      password: $signUpForm.newPassword.value,
+      favorites: [],
+      userId: data2.nextUserId
+    };
 
-  data2.nextUserId++;
-  data2.users.push(user);
+    data2.nextUserId++;
+    data2.users.push(user);
 
-  $signUpForm.reset();
+    $signUpForm.reset();
+  }
 });
 
 // View Swap function
