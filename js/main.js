@@ -6,7 +6,7 @@ var $homepage = document.querySelector('h1');
 var $homepageView = document.querySelector('main[data-view="homepage"]');
 var $localButton = document.querySelector('#local-button');
 var $localView = document.querySelector('main[data-view="local"]');
-var $signInButton = document.querySelector('#sign-in-button');
+var $signIn = document.querySelector('#sign-in');
 var $signInView = document.querySelector('main[data-view="sign-in"]');
 var $header = document.querySelector('#dynamic-header');
 var $pageResultsContainer = document.querySelector('#page-results-container');
@@ -24,7 +24,7 @@ $homepage.addEventListener('click', function (event) {
 
 // Click Sign In to go to Sign In view
 
-$signInButton.addEventListener('click', function (event) {
+$signIn.addEventListener('click', function (event) {
   viewSwap('sign-in');
   $pageResultsContainer.classList.add('hidden');
   pageNumber = 1;
@@ -491,5 +491,7 @@ function viewSwap(view) {
     $homepageView.classList.add('hidden');
     $localView.classList.add('hidden');
     $signInView.classList.remove('hidden');
+
+    data2.view = 'sign-in';
   }
 }
