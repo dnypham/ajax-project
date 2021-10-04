@@ -459,18 +459,28 @@ var $signUpForm = document.querySelector('#user-sign-up');
 $signUpForm.addEventListener('submit', function (event) {
   event.preventDefault();
 
-  if ($signUpForm.newPassword.value === $signUpForm.confirmNewPassword.value) {
-    var user = {
-      username: $signUpForm.newUsername.value,
-      password: $signUpForm.newPassword.value,
-      favorites: [],
-      userId: data2.nextUserId
-    };
+  var user = {
+    username: $signUpForm.newUsername.value,
+    password: null,
+    favorites: [],
+    userId: data2.nextUserId
+  };
 
-    data2.nextUserId++;
-    data2.users.push(user);
+  data2.nextUserId++;
+  data2.users.push(user);
 
-    $signUpForm.reset();
+  $signUpForm.reset();
+});
+
+// Sign In text boxes color change
+
+var $newUsername = document.querySelector('#new-username');
+
+$newUsername.addEventListener('keyup', function (event) {
+  if ($newUsername.value.length < 3) {
+    $newUsername.className = 'new-username-red';
+  } else {
+    $newUsername.className = 'new-username-green';
   }
 });
 

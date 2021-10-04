@@ -345,8 +345,20 @@
   border: 1px solid #f9b437;
 }
 
-.new-users-container input {
+/* .new-users-container input {
   border: 1px solid #000;
+} */
+
+.new-username {
+  border: 1px solid #000;
+}
+
+.new-username-red {
+  border: 1px solid red;
+}
+
+.new-username-green {
+  border: 1px solid green;
 }
 
 .sign-in button {
