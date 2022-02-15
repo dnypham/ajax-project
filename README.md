@@ -12,7 +12,7 @@ A dynamic web application for beer enthusiasts to discover new breweries.
   - CSS3
   - AJAX
   - JSON
-  - FIGMA
+  - Figma
 
 ## Features:
   1. User can view local breweries.
