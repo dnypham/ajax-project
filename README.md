@@ -1,6 +1,6 @@
 # Brew Discovery (Not complete, work in progress)
 
-A dynamic web application for beer enthusiasts to discover new breweries.
+A dynamic JavaScript web application for beer enthusiasts to discover new breweries.
 
 ## Live Demo
 
