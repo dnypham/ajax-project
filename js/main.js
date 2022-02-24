@@ -25,14 +25,14 @@ $localButton.addEventListener('click', function (event) {
   $homepageView.classList.add('hidden');
   $header.textContent = 'Local Breweries';
 
-  var ipgeo = new XMLHttpRequest();
+  var geo = new XMLHttpRequest();
 
-  ipgeo.open('GET', 'https://api.techniknews.net/ipgeo/');
-  ipgeo.responseType = 'json';
+  geo.open('GET', 'http://www.geoplugin.net/json.gp?ip=');
+  geo.responseType = 'json';
 
-  ipgeo.addEventListener('load', function () {
-    var latitude = ipgeo.response.lat;
-    var longitude = ipgeo.response.lon;
+  geo.addEventListener('load', function () {
+    var longitude = geo.response.geoplugin_longitude;
+    var latitude = geo.response.geoplugin_latitude;
     var openBreweryDB = new XMLHttpRequest();
 
     openBreweryDB.open('GET', 'https://api.openbrewerydb.org/breweries?by_dist=' + latitude + ',' + longitude);
@@ -49,7 +49,7 @@ $localButton.addEventListener('click', function (event) {
     openBreweryDB.send();
   });
 
-  ipgeo.send();
+  geo.send();
 
 });
 
