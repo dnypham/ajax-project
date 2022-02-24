@@ -311,9 +311,8 @@ $modal.addEventListener('click', function (event) {
 
     var breweryEdit = document.querySelector('[data-id="' + editId + '"]');
     breweryEdit.className = 'far fa-heart fa-2x';
-
     for (var x = 0; x < data.favorites.length; x++) {
-      if (Number.parseInt(breweryEdit.getAttribute('data-id')) === data.favorites[x].id) {
+      if (breweryEdit.getAttribute('data-id') === data.favorites[x].id) {
         data.favorites.splice(x, 1);
         if ($header.textContent === 'Favorites') {
           $parentDiv.innerHTML = '';
