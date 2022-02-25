@@ -531,6 +531,19 @@
   .border-top {
     margin: 20px 40px 0;
   }
+
+  .pop-up {
+    width: 400px;
+    height: 200px;
+  }
+
+  .pop-up > h4 {
+    font-size: 28px;
+  }
+
+  .button-container {
+    padding: 0 50px;
+  }
 }
 
 @media only screen and (max-width: 576px) {
@@ -561,5 +574,23 @@
 
   .brewery-info {
     width: 300px;
+  }
+
+  .pop-up {
+    width: 300px;
+    height: 200px;
+  }
+
+  .pop-up > h4 {
+    font-size: 21px;
+  }
+
+  .button-container {
+    padding: 0 30px;
+  }
+
+  .button-container > button {
+    width: 100px;
+    font-size: 18px;
   }
 }
