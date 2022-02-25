@@ -52,10 +52,6 @@ body {
   flex-wrap: wrap;
 }
 
-.hidden {
-  display: none;
-}
-
 .header-column-full {
   flex-basis: 100%;
 }

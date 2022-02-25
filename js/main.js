@@ -8,6 +8,14 @@ var $localView = document.querySelector('main[data-view="local"]');
 var $header = document.querySelector('#dynamic-header');
 var $pageResultsContainer = document.querySelector('#page-results-container');
 
+const hideLoader = spinner => {
+  spinner.classList.add('hidden');
+};
+
+const showLoader = spinner => {
+  spinner.classList.remove('hidden');
+};
+
 $homepage.addEventListener('click', function (event) {
   $homepageView.classList.remove('hidden');
   $localView.classList.add('hidden');
@@ -32,6 +40,7 @@ $homepage2.addEventListener('click', function (event) {
 
 $localButton.addEventListener('click', function (event) {
 
+  showLoader(document.querySelector('.spinner-container'));
   $localView.classList.remove('hidden');
   $homepageView.classList.add('hidden');
   $header.textContent = 'Local Breweries';
@@ -50,6 +59,7 @@ $localButton.addEventListener('click', function (event) {
     openBreweryDB.responseType = 'json';
 
     openBreweryDB.addEventListener('load', function () {
+      hideLoader(document.querySelector('.spinner-container'));
       var breweries = openBreweryDB.response;
 
       for (var i = 0; i < breweries.length; i++) {
