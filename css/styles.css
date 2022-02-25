@@ -152,7 +152,7 @@
 }
 
 .brewery-card {
-  width: 565px;
+  width: 540px;
   height: 200px;
   border: 1px solid #f9b437;
   box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
@@ -212,8 +212,8 @@
 
 .brewery-map {
   border: 1px solid #f9b437;
-  width: 230px;
-  height: 170px;
+  width: 150px;
+  height: 140px;
 }
 
 .map-image {
@@ -399,6 +399,15 @@
     height: 280px;
     width: 280px;
   }
+
+  .brewery-card {
+    width: 450px;
+  }
+
+  .brewery-map {
+    width: 130px;
+    height: 120px;
+  }
 }
 
 @media only screen and (max-width: 992px) {
@@ -413,6 +422,19 @@
 
   .img-content > p {
     font-size: 12px;
+  }
+
+  .brewery-card {
+    width: 540px;
+  }
+
+  .brewery-map {
+    width: 150px;
+    height: 140px;
+  }
+
+  .column-half-content {
+    flex-basis: 100%;
   }
 }
 
@@ -493,5 +515,17 @@
 
   .border-top {
     margin: 35px 40px 0;
+  }
+
+  .brewery-card {
+    width: 330px;
+  }
+
+  .brewery-map {
+    display: none;
+  }
+
+  .brewery-info {
+    width: 300px;
   }
 }

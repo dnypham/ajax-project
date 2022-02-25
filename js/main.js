@@ -145,7 +145,7 @@ var $parentDiv = document.querySelector('#parent-div');
 
 function renderBreweries(breweries) {
   var $col3 = document.createElement('div');
-  $col3.setAttribute('class', 'column-half');
+  $col3.setAttribute('class', 'column-half-content');
 
   var $breweryCardFlex = document.createElement('div');
   $breweryCardFlex.setAttribute('class', 'brewery-card-flex');
