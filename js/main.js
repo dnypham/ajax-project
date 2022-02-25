@@ -172,6 +172,8 @@ $searchBar2.addEventListener('keydown', function (event) {
       return;
     }
 
+    showLoader(document.querySelector('.spinner-container'));
+
     if ($searchBar2.getAttribute('placeholder') === 'Search by city...') {
       breweryCount = 0;
       pageNumber = 1;
@@ -187,6 +189,7 @@ $searchBar2.addEventListener('keydown', function (event) {
       openBreweryDB.responseType = 'json';
 
       openBreweryDB.addEventListener('load', function () {
+        hideLoader(document.querySelector('.spinner-container'));
         var breweries = openBreweryDB.response;
 
         for (var i = 0; i < breweries.length; i++) {
@@ -221,6 +224,8 @@ $searchBar2.addEventListener('keydown', function (event) {
       openBreweryDB.responseType = 'json';
 
       openBreweryDB.addEventListener('load', function () {
+        hideLoader(document.querySelector('.spinner-container'));
+
         var breweries = openBreweryDB.response;
 
         for (var i = 0; i < breweries.length; i++) {
@@ -493,6 +498,7 @@ $arrowLeft.addEventListener('click', function (event) {
   if (pageNumber > 1) {
     pageNumber--;
     breweryCount = 0;
+    showLoader(document.querySelector('.spinner-container'));
 
     $parentDiv.innerHTML = '';
     var openBreweryDB = new XMLHttpRequest();
@@ -501,6 +507,7 @@ $arrowLeft.addEventListener('click', function (event) {
     openBreweryDB.responseType = 'json';
 
     openBreweryDB.addEventListener('load', function () {
+      hideLoader(document.querySelector('.spinner-container'));
       var breweries = openBreweryDB.response;
 
       for (var i = 0; i < breweries.length; i++) {
@@ -526,6 +533,7 @@ $arrowLeft.addEventListener('click', function (event) {
 $arrowRight.addEventListener('click', function (event) {
 
   if (breweryCount === 20) {
+    showLoader(document.querySelector('.spinner-container'));
     breweryCount = 0;
     pageNumber++;
     $parentDiv.innerHTML = '';
@@ -535,6 +543,7 @@ $arrowRight.addEventListener('click', function (event) {
     openBreweryDB.responseType = 'json';
 
     openBreweryDB.addEventListener('load', function () {
+      hideLoader(document.querySelector('.spinner-container'));
       var breweries = openBreweryDB.response;
 
       for (var i = 0; i < breweries.length; i++) {
