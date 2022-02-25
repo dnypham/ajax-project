@@ -83,6 +83,7 @@ var breweryName;
 
 $searchBar.addEventListener('keydown', function (event) {
   if (event.keyCode === 13) {
+    showLoader(document.querySelector('.spinner-container'));
 
     if (!$searchBar.value || $searchBar.value === ' ') {
       return;
@@ -103,6 +104,7 @@ $searchBar.addEventListener('keydown', function (event) {
       openBreweryDB.responseType = 'json';
 
       openBreweryDB.addEventListener('load', function () {
+        hideLoader(document.querySelector('.spinner-container'));
         var breweries = openBreweryDB.response;
 
         for (var i = 0; i < breweries.length; i++) {
@@ -137,6 +139,7 @@ $searchBar.addEventListener('keydown', function (event) {
       openBreweryDB.responseType = 'json';
 
       openBreweryDB.addEventListener('load', function () {
+        hideLoader(document.querySelector('.spinner-container'));
         var breweries = openBreweryDB.response;
 
         for (var i = 0; i < breweries.length; i++) {
