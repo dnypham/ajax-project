@@ -1,6 +1,7 @@
 // Click app name in header to go to Homepage View
 
-var $homepage = document.querySelector('h1');
+var $homepage = document.querySelector('.logo');
+var $homepage2 = document.querySelector('.logo-2');
 var $homepageView = document.querySelector('main[data-view="homepage"]');
 var $localButton = document.querySelector('#local-button');
 var $localView = document.querySelector('main[data-view="local"]');
@@ -8,6 +9,16 @@ var $header = document.querySelector('#dynamic-header');
 var $pageResultsContainer = document.querySelector('#page-results-container');
 
 $homepage.addEventListener('click', function (event) {
+  $homepageView.classList.remove('hidden');
+  $localView.classList.add('hidden');
+  $pageResultsContainer.classList.add('hidden');
+
+  $parentDiv.innerHTML = '';
+  pageNumber = 1;
+  $searchBar.setAttribute('placeholder', 'Search by city...');
+});
+
+$homepage2.addEventListener('click', function (event) {
   $homepageView.classList.remove('hidden');
   $localView.classList.add('hidden');
   $pageResultsContainer.classList.add('hidden');
@@ -55,7 +66,7 @@ $localButton.addEventListener('click', function (event) {
 
 // Search for breweries in a city when clicking enter.
 
-var $searchBar = document.querySelector('#search-bar');
+var $searchBar = document.querySelector('.search-bar');
 var breweryCount = 0;
 var city;
 var breweryName;
@@ -130,6 +141,87 @@ $searchBar.addEventListener('keydown', function (event) {
           $pageResultsContainer.classList.add('hidden');
         }
         $searchBar.value = '';
+      });
+
+      openBreweryDB.send();
+      $localView.classList.remove('hidden');
+    }
+
+  }
+});
+
+var $searchBar2 = document.querySelector('.search-bar-2');
+
+$searchBar2.addEventListener('keydown', function (event) {
+  if (event.keyCode === 13) {
+
+    if (!$searchBar2.value || $searchBar2.value === ' ') {
+      return;
+    }
+
+    if ($searchBar2.getAttribute('placeholder') === 'Search by city...') {
+      breweryCount = 0;
+      pageNumber = 1;
+      if ($searchBar2.value) {
+        $homepageView.classList.add('hidden');
+      }
+      $pageResultsContainer.classList.remove('hidden');
+      $parentDiv.innerHTML = '';
+      city = $searchBar2.value;
+      var openBreweryDB = new XMLHttpRequest();
+
+      openBreweryDB.open('GET', 'https://api.openbrewerydb.org/breweries?page=' + pageNumber + '&' + 'per_page=20' + '&' + 'by_city=' + city);
+      openBreweryDB.responseType = 'json';
+
+      openBreweryDB.addEventListener('load', function () {
+        var breweries = openBreweryDB.response;
+
+        for (var i = 0; i < breweries.length; i++) {
+          $parentDiv.appendChild(renderBreweries(breweries[i]));
+          breweryCount++;
+        }
+
+        if (breweryCount > 0) {
+          $header.textContent = city + ' ' + 'Breweries';
+        } else {
+          $header.textContent = 'No Breweries Found in' + ' ' + '"' + city + '"';
+          $pageResultsContainer.classList.add('hidden');
+        }
+        $searchBar2.value = '';
+      });
+
+      openBreweryDB.send();
+      $localView.classList.remove('hidden');
+    } else {
+      breweryCount = 0;
+      pageNumber = 1;
+      if ($searchBar2.value) {
+        $homepageView.classList.add('hidden');
+      }
+      $pageResultsContainer.classList.add('hidden');
+      $parentDiv.innerHTML = '';
+      breweryName = $searchBar2.value;
+
+      openBreweryDB = new XMLHttpRequest();
+
+      openBreweryDB.open('GET', 'https://api.openbrewerydb.org/breweries?by_name=' + breweryName);
+      openBreweryDB.responseType = 'json';
+
+      openBreweryDB.addEventListener('load', function () {
+        var breweries = openBreweryDB.response;
+
+        for (var i = 0; i < breweries.length; i++) {
+          $parentDiv.appendChild(renderBreweries(breweries[i]));
+          breweryCount++;
+        }
+
+        if (breweryCount > 0) {
+          $header.textContent = breweryName;
+        } else {
+          $header.textContent = 'No results for' + ' ' + breweryName;
+          $pageResultsContainer.classList.add('hidden');
+        }
+        $searchBar2.value = '';
       });
 
       openBreweryDB.send();
@@ -329,9 +421,24 @@ $modal.addEventListener('click', function (event) {
 
 // Favorites list
 
-var $favorites = document.querySelector('#favorites-list');
+var $favorites = document.querySelector('.favorites-list');
 
 $favorites.addEventListener('click', function (event) {
+  $parentDiv.innerHTML = '';
+  $localView.classList.remove('hidden');
+  $homepageView.classList.add('hidden');
+  $pageResultsContainer.classList.add('hidden');
+  $header.textContent = 'Favorites';
+
+  for (var i = 0; i < data.favorites.length; i++) {
+    $parentDiv.appendChild(renderBreweries(data.favorites[i]));
+  }
+  pageNumber = 1;
+});
+
+var $favorites2 = document.querySelector('.favorites-list-2');
+
+$favorites2.addEventListener('click', function (event) {
   $parentDiv.innerHTML = '';
   $localView.classList.remove('hidden');
   $homepageView.classList.add('hidden');
@@ -436,12 +543,22 @@ $arrowRight.addEventListener('click', function (event) {
 
 //  Search toggle to change search to name.
 
-var $searchToggle = document.querySelector('#search-toggle');
+var $searchToggle = document.querySelector('.search-toggle');
 
 $searchToggle.addEventListener('click', function (event) {
   if ($searchBar.getAttribute('placeholder') === 'Search by city...') {
     $searchBar.setAttribute('placeholder', 'Search by name...');
   } else {
     $searchBar.setAttribute('placeholder', 'Search by city...');
+  }
+});
+
+var $searchToggle2 = document.querySelector('.search-toggle-2');
+
+$searchToggle2.addEventListener('click', function (event) {
+  if ($searchBar2.getAttribute('placeholder') === 'Search by city...') {
+    $searchBar2.setAttribute('placeholder', 'Search by name...');
+  } else {
+    $searchBar2.setAttribute('placeholder', 'Search by city...');
   }
 });
