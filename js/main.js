@@ -20,6 +20,7 @@ $homepage.addEventListener('click', function (event) {
   $homepageView.classList.remove('hidden');
   $localView.classList.add('hidden');
   $pageResultsContainer.classList.add('hidden');
+  document.querySelector('.not-found-container').classList.add('hidden');
 
   $parentDiv.innerHTML = '';
   pageNumber = 1;
@@ -43,6 +44,8 @@ $localButton.addEventListener('click', function (event) {
   showLoader(document.querySelector('.spinner-container'));
   $localView.classList.remove('hidden');
   $homepageView.classList.add('hidden');
+  document.querySelector('.not-found-container').classList.add('hidden');
+
   $header.textContent = 'Local Breweries';
 
   var geo = new XMLHttpRequest();
@@ -442,29 +445,40 @@ $modal.addEventListener('click', function (event) {
 var $favorites = document.querySelector('.favorites-list');
 
 $favorites.addEventListener('click', function (event) {
+  hideLoader(document.querySelector('.spinner-container'));
   $parentDiv.innerHTML = '';
   $localView.classList.remove('hidden');
   $homepageView.classList.add('hidden');
   $pageResultsContainer.classList.add('hidden');
   $header.textContent = 'Favorites';
 
-  for (var i = 0; i < data.favorites.length; i++) {
-    $parentDiv.appendChild(renderBreweries(data.favorites[i]));
+  if (data.favorites.length === 0) {
+    document.querySelector('.not-found-container').classList.remove('hidden');
+  } else {
+    for (var i = 0; i < data.favorites.length; i++) {
+      $parentDiv.appendChild(renderBreweries(data.favorites[i]));
+    }
   }
+
   pageNumber = 1;
 });
 
 var $favorites2 = document.querySelector('.favorites-list-2');
 
 $favorites2.addEventListener('click', function (event) {
+  hideLoader(document.querySelector('.spinner-container'));
   $parentDiv.innerHTML = '';
   $localView.classList.remove('hidden');
   $homepageView.classList.add('hidden');
   $pageResultsContainer.classList.add('hidden');
   $header.textContent = 'Favorites';
 
-  for (var i = 0; i < data.favorites.length; i++) {
-    $parentDiv.appendChild(renderBreweries(data.favorites[i]));
+  if (data.favorites.length === 0) {
+    document.querySelector('.not-found-container').classList.remove('hidden');
+  } else {
+    for (var i = 0; i < data.favorites.length; i++) {
+      $parentDiv.appendChild(renderBreweries(data.favorites[i]));
+    }
   }
   pageNumber = 1;
 });

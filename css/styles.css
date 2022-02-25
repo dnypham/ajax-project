@@ -252,6 +252,14 @@
   width: 120px;
 }
 
+.not-found-container {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 /* ----------POPUP-MODAL---------- */
 
 .pop-up-container {
