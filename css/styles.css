@@ -38,7 +38,7 @@
   align-items: center;
 }
 
-.logo-flex > h1 {
+.logo-flex > a {
   font-size: inherit;
   margin-left: 10px;
 }
@@ -462,7 +462,7 @@
   color: black;
 }
 
-.logo-flex > h1:hover {
+.logo-flex > a:hover {
   cursor: pointer;
   color: black;
 }
