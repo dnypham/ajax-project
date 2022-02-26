@@ -272,126 +272,120 @@ $searchBar2.addEventListener('keydown', function (event) {
 
 // Function to Render Brewery Cards
 
-function renderBreweries(breweries) {
-  var $col3 = document.createElement('div');
+function renderBreweries(brewery) {
+  const $col3 = document.createElement('div');
   $col3.setAttribute('class', 'column-half-content');
 
-  var $breweryCardFlex = document.createElement('div');
+  const $breweryCardFlex = document.createElement('div');
   $breweryCardFlex.setAttribute('class', 'brewery-card-flex');
   $col3.appendChild($breweryCardFlex);
 
-  var $breweryCard = document.createElement('div');
+  const $breweryCard = document.createElement('div');
   $breweryCard.setAttribute('class', 'brewery-card');
   $breweryCardFlex.appendChild($breweryCard);
 
-  var $row = document.createElement('div');
+  const $row = document.createElement('div');
   $row.setAttribute('class', 'row');
   $breweryCard.appendChild($row);
 
-  var $col1 = document.createElement('div');
+  const $col1 = document.createElement('div');
   $col1.setAttribute('class', 'column-half');
   $col1.setAttribute('class', 'heart-container');
   $row.appendChild($col1);
 
-  var $infoFlex = document.createElement('div');
+  const $infoFlex = document.createElement('div');
   $infoFlex.setAttribute('class', 'info-flex');
   $col1.appendChild($infoFlex);
 
-  var $breweryInfo = document.createElement('div');
+  const $breweryInfo = document.createElement('div');
   $breweryInfo.setAttribute('class', 'brewery-info');
   $infoFlex.appendChild($breweryInfo);
 
-  var $h3 = document.createElement('h3');
-  if (breweries.name === null) {
-    breweries.name = '';
-  } else {
-    $h3.textContent = breweries.name;
+  const $h3 = document.createElement('h3');
+  if (brewery.name) {
+    $h3.textContent = brewery.name;
     $breweryInfo.appendChild($h3);
+  } else {
+    brewery.name = '';
   }
 
-  var $ul = document.createElement('ul');
+  const $ul = document.createElement('ul');
   $breweryInfo.appendChild($ul);
 
-  var $li1 = document.createElement('li');
-  var phone;
-  if (breweries.phone) {
-    phone = '(' + breweries.phone.slice(0, 3) + ')' + ' ' + breweries.phone.slice(3, 6) + '-' + breweries.phone.slice(6);
-  } else {
-    phone = '';
-  }
-  $li1.textContent = phone;
+  const $li1 = document.createElement('li');
+
+  brewery.phone
+    ? brewery.phone = `(${brewery.phone.slice(0, 3)}) ${brewery.phone.slice(3, 6)}-${brewery.phone.slice(6)}`
+    : brewery.phone = '';
+
+  $li1.textContent = brewery.phone;
   $ul.appendChild($li1);
 
-  var $li2 = document.createElement('li');
-  var street;
-  var city;
-  var state;
-  if (breweries.street === null) {
-    street = '';
-  } else {
-    street = breweries.street + ', ';
+  const $li2 = document.createElement('li');
+
+  brewery.street
+    ? brewery.street = `${brewery.street}, `
+    : brewery.street = '';
+
+  brewery.city
+    ? brewery.city = `${brewery.city}, `
+    : brewery.city = '';
+
+  if (!brewery.state) {
+    brewery.state = '';
   }
-  if (breweries.city === null) {
-    city = '';
-  } else {
-    city = breweries.city + ', ';
-  }
-  if (breweries.state === null) {
-    state = '';
-  } else {
-    state = breweries.state;
-  }
-  $li2.textContent = street + city + state;
+
+  $li2.textContent = brewery.street + brewery.city + brewery.state;
   $ul.appendChild($li2);
 
-  var $li3 = document.createElement('li');
+  const $li3 = document.createElement('li');
   $ul.appendChild($li3);
 
-  var $a = document.createElement('a');
-  if (breweries.website_url) {
-    $a.textContent = breweries.website_url.slice(7);
-    $a.setAttribute('href', breweries.website_url);
+  const $a = document.createElement('a');
+  if (brewery.website_url) {
+    $a.textContent = brewery.website_url.slice(7);
+    $a.setAttribute('href', brewery.website_url);
     $a.setAttribute('target', '_blank');
   }
   $li3.appendChild($a);
 
-  var $i1 = document.createElement('i');
+  const $i1 = document.createElement('i');
 
   $i1.setAttribute('class', 'far fa-heart fa-2x');
 
-  for (var i = 0; i < data.favorites.length; i++) {
-    if (data.favorites[i].id === breweries.id) {
+  for (let i = 0; i < data.favorites.length; i++) {
+    if (data.favorites[i].id === brewery.id) {
       $i1.setAttribute('class', 'fas fa-heart fa-2x');
     }
   }
 
   $i1.setAttribute('id', 'heart');
-  $i1.setAttribute('data-id', breweries.id);
+  $i1.setAttribute('data-id', brewery.id);
   $col1.appendChild($i1);
 
-  var $col2 = document.createElement('div');
+  const $col2 = document.createElement('div');
   $col2.setAttribute('class', 'column-half');
   $row.appendChild($col2);
 
-  var $mapFlex = document.createElement('div');
+  const $mapFlex = document.createElement('div');
   $mapFlex.setAttribute('class', 'map-flex');
   $col2.appendChild($mapFlex);
 
-  var $breweryMap = document.createElement('div');
+  const $breweryMap = document.createElement('div');
   $breweryMap.setAttribute('class', 'brewery-map');
   $mapFlex.appendChild($breweryMap);
 
-  var $map = document.createElement('iframe');
+  const $map = document.createElement('iframe');
 
-  if (breweries.latitude && breweries.longitude) {
-    $map.setAttribute('src', 'https://maps.google.com/maps?q=' + breweries.latitude + ',' + breweries.longitude + '&z=15&output=embed');
+  if (brewery.latitude && brewery.longitude) {
+    $map.setAttribute('src', `https://maps.google.com/maps?q=${brewery.latitude},${brewery.longitude}&z=15&output=embed`);
     $map.setAttribute('width', '100%');
     $map.setAttribute('height', '100%');
     $map.setAttribute('frameborder', '0');
     $map.setAttribute('style', 'border: 0;');
     $breweryMap.appendChild($map);
   } else {
-    var $img = document.createElement('img');
+    const $img = document.createElement('img');
     $img.setAttribute('class', 'map-image');
     $img.setAttribute('src', 'https://static-00.iconduck.com/assets.00/map-marker-slash-icon-500x512-rym1tj3e.png');
     $breweryMap.appendChild($img);
