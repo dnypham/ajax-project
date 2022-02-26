@@ -24,8 +24,6 @@ let breweryName;
 let editId;
 let pageNumber = 1;
 
-// Functions
-
 function hideLoader(spinner) {
   spinner.classList.add('hidden');
 }
@@ -76,8 +74,6 @@ function viewSwap(event) {
   }
 }
 
-// Click app name in header to go to Homepage View
-
 $homepage.addEventListener('click', function (event) {
   viewSwap(event);
 });
@@ -85,8 +81,6 @@ $homepage.addEventListener('click', function (event) {
 $homepage2.addEventListener('click', function (event) {
   viewSwap(event);
 });
-
-// Click local button to go to Local Breweries View
 
 $localButton.addEventListener('click', function (event) {
 
@@ -117,8 +111,6 @@ $localButton.addEventListener('click', function (event) {
   geolocationRequest.send();
 });
 
-// Favorites list
-
 $favorites.addEventListener('click', function (event) {
   viewSwap(event);
 
@@ -134,8 +126,6 @@ $favorites2.addEventListener('click', function (event) {
     ? $notFound.classList.remove('hidden')
     : data.favorites.forEach(brewery => $parentDiv.appendChild(renderBreweries(brewery)));
 });
-
-// Search for breweries in a city when clicking enter.
 
 $searchBar.addEventListener('keydown', function (event) {
   if (event.keyCode === 13) {
@@ -281,8 +271,6 @@ $searchBar2.addEventListener('keydown', function (event) {
   }
 });
 
-// Function to Render Brewery Cards
-
 function renderBreweries(brewery) {
   const $col3 = document.createElement('div');
   $col3.setAttribute('class', 'column-half-content');
@@ -405,8 +393,6 @@ function renderBreweries(brewery) {
   return $col3;
 }
 
-// Event listener to toggle hearts
-
 $parentDiv.addEventListener('click', function (event) {
   if (event.target.matches('#heart')) {
     if (event.target.className === 'far fa-heart fa-2x') {
@@ -430,8 +416,6 @@ $parentDiv.addEventListener('click', function (event) {
     }
   }
 });
-
-// Pop up event listeners
 
 $modal.addEventListener('click', function (event) {
 
@@ -462,8 +446,6 @@ $modal.addEventListener('click', function (event) {
   }
 });
 
-//  Event listener to toggle arrow icons.
-
 $arrowRight.addEventListener('mouseover', function (event) {
   $arrowRight.className = 'fas fa-arrow-alt-circle-right fa-2x';
 });
@@ -479,8 +461,6 @@ $arrowLeft.addEventListener('mouseover', function (event) {
 $arrowLeft.addEventListener('mouseout', function (event) {
   $arrowLeft.className = 'far fa-arrow-alt-circle-left fa-2x';
 });
-
-// Function to change brewery results
 
 $arrowLeft.addEventListener('click', function (event) {
   if (pageNumber > 1) {
@@ -517,8 +497,6 @@ $arrowLeft.addEventListener('click', function (event) {
   }
 
 });
-
-// Event listener to change page results
 
 $arrowRight.addEventListener('click', function (event) {
 
@@ -560,8 +538,6 @@ $arrowRight.addEventListener('click', function (event) {
     breweryRequest.send();
   }
 });
-
-//  Search toggle to change search to name.
 
 $searchToggle.addEventListener('click', function (event) {
   if ($searchBar.getAttribute('placeholder') === 'Search by city...') {
