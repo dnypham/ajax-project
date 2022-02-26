@@ -12,10 +12,12 @@ const $favorites = document.querySelector('.favorites-list');
 const $favorites2 = document.querySelector('.favorites-list-2');
 const $searchBar = document.querySelector('.search-bar');
 const $searchBar2 = document.querySelector('.search-bar-2');
+const $modal = document.querySelector('#popup');
 
 let breweryCount = 0;
 let city;
 let breweryName;
+let editId;
 
 // Functions
 
@@ -396,25 +398,22 @@ function renderBreweries(brewery) {
 
 // Event listener to toggle hearts
 
-var $modal = document.querySelector('#popup');
-var editId;
-
 $parentDiv.addEventListener('click', function (event) {
   if (event.target.matches('#heart')) {
     if (event.target.className === 'far fa-heart fa-2x') {
       event.target.className = 'fas fa-heart fa-2x';
-      var id = event.target.getAttribute('data-id');
+      const id = event.target.getAttribute('data-id');
 
-      var openBreweryDB = new XMLHttpRequest();
+      const breweryRequest = new XMLHttpRequest();
 
-      openBreweryDB.open('GET', 'https://api.openbrewerydb.org/breweries/' + id);
-      openBreweryDB.responseType = 'json';
+      breweryRequest.open('GET', `https://api.openbrewerydb.org/breweries/${id}`);
+      breweryRequest.responseType = 'json';
 
-      openBreweryDB.addEventListener('load', function () {
-        data.favorites.push(openBreweryDB.response);
+      breweryRequest.addEventListener('load', function () {
+        data.favorites.push(breweryRequest.response);
       });
 
-      openBreweryDB.send();
+      breweryRequest.send();
 
     } else {
       editId = event.target.getAttribute('data-id');
