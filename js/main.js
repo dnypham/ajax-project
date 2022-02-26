@@ -491,6 +491,7 @@ $arrowLeft.addEventListener('click', function (event) {
 
     breweryRequest.addEventListener('load', function () {
       hideLoader($spinner);
+
       const breweries = breweryRequest.response;
 
       breweries.forEach(brewery => {
@@ -515,33 +516,40 @@ $arrowLeft.addEventListener('click', function (event) {
 $arrowRight.addEventListener('click', function (event) {
 
   if (breweryCount === 20) {
-    showLoader(document.querySelector('.spinner-container'));
+    showLoader($spinner);
     breweryCount = 0;
     pageNumber++;
     $parentDiv.innerHTML = '';
-    var openBreweryDB = new XMLHttpRequest();
 
-    openBreweryDB.open('GET', 'https://api.openbrewerydb.org/breweries?page=' + pageNumber + '&' + 'per_page=20' + '&' + 'by_city=' + city);
-    openBreweryDB.responseType = 'json';
+    const breweryRequest = new XMLHttpRequest();
 
-    openBreweryDB.addEventListener('load', function () {
-      hideLoader(document.querySelector('.spinner-container'));
-      var breweries = openBreweryDB.response;
+    breweryRequest.open('GET', `https://api.openbrewerydb.org/breweries?page=${pageNumber}&per_page=20&by_city=${city}`);
+    breweryRequest.responseType = 'json';
 
-      for (var i = 0; i < breweries.length; i++) {
-        $parentDiv.appendChild(renderBreweries(breweries[i]));
+    breweryRequest.addEventListener('load', function () {
+      hideLoader($spinner);
+
+      const breweries = breweryRequest.response;
+
+      breweries.forEach(brewery => {
+        $parentDiv.appendChild(renderBreweries(brewery));
         breweryCount++;
-      }
+      });
 
       if (breweryCount > 0) {
         $header.textContent = city + ' ' + 'Breweries';
       } else {
         $header.textContent = 'No Breweries Found in' + ' ' + '"' + city + '"';
       }
+
+      breweryCount > 0
+        ? $header.textContent = `${city} Breweries`
+        : $header.textContent = `No Breweries Found in "${city}"`;
+
       $searchBar.value = '';
     });
 
-    openBreweryDB.send();
+    breweryRequest.send();
   }
 });
 
