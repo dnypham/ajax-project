@@ -425,22 +425,26 @@ $parentDiv.addEventListener('click', function (event) {
 // Pop up event listeners
 
 $modal.addEventListener('click', function (event) {
+
   if (event.target.textContent === 'CANCEL') {
     $modal.classList.add('hidden');
   }
 
   if (event.target.textContent === 'CONFIRM') {
+    const breweryEdit = document.querySelector('[data-id="' + editId + '"]');
 
-    var breweryEdit = document.querySelector('[data-id="' + editId + '"]');
     breweryEdit.className = 'far fa-heart fa-2x';
-    for (var x = 0; x < data.favorites.length; x++) {
+
+    for (let x = 0; x < data.favorites.length; x++) {
       if (breweryEdit.getAttribute('data-id') === data.favorites[x].id) {
         data.favorites.splice(x, 1);
+
         if ($header.textContent === 'Favorites') {
           $parentDiv.innerHTML = '';
-          for (var i = 0; i < data.favorites.length; i++) {
-            $parentDiv.appendChild(renderBreweries(data.favorites[i]));
-          }
+
+          data.favorites.forEach(brewery => {
+            $parentDiv.appendChild(renderBreweries(brewery));
+          });
         }
       }
     }
