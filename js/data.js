@@ -1,16 +1,17 @@
 /* exported data */
 
-var data = {
+let data = {
   favorites: []
 };
 
-var previousDataJSON = localStorage.getItem('javascript-local-storage');
+const previousDataJSON = localStorage.getItem('javascript-local-storage');
 
 if (previousDataJSON !== null) {
   data = JSON.parse(previousDataJSON);
 }
 
 window.addEventListener('beforeunload', function (event) {
-  var dataJSON = JSON.stringify(data);
+  this.scrollTo(0, 0);
+  const dataJSON = JSON.stringify(data);
   localStorage.setItem('javascript-local-storage', dataJSON);
 });

@@ -15,6 +15,8 @@ const $searchBar2 = document.querySelector('.search-bar-2');
 const $modal = document.querySelector('#popup');
 const $arrowRight = document.querySelector('#arrow-right');
 const $arrowLeft = document.querySelector('#arrow-left');
+const $searchToggle = document.querySelector('.search-toggle');
+const $searchToggle2 = document.querySelector('.search-toggle-2');
 
 let breweryCount = 0;
 let city;
@@ -23,10 +25,6 @@ let editId;
 let pageNumber = 1;
 
 // Functions
-
-window.addEventListener('beforeunload', function (event) {
-  this.scrollTo(0, 0);
-});
 
 function hideLoader(spinner) {
   spinner.classList.add('hidden');
@@ -565,8 +563,6 @@ $arrowRight.addEventListener('click', function (event) {
 
 //  Search toggle to change search to name.
 
-var $searchToggle = document.querySelector('.search-toggle');
-
 $searchToggle.addEventListener('click', function (event) {
   if ($searchBar.getAttribute('placeholder') === 'Search by city...') {
     $searchBar.setAttribute('placeholder', 'Search by name...');
@@ -574,8 +570,6 @@ $searchToggle.addEventListener('click', function (event) {
     $searchBar.setAttribute('placeholder', 'Search by city...');
   }
 });
-
-var $searchToggle2 = document.querySelector('.search-toggle-2');
 
 $searchToggle2.addEventListener('click', function (event) {
   if ($searchBar2.getAttribute('placeholder') === 'Search by city...') {
