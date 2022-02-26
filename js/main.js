@@ -24,6 +24,10 @@ let pageNumber = 1;
 
 // Functions
 
+window.addEventListener('beforeunload', function (event) {
+  this.scrollTo(0, 0);
+});
+
 function hideLoader(spinner) {
   spinner.classList.add('hidden');
 }
@@ -45,11 +49,13 @@ function viewSwap(event) {
     $homepageView.classList.remove('hidden');
     $searchBar.setAttribute('placeholder', 'Search by city...');
     $parentDiv.innerHTML = '';
+    window.scrollTo(0, 0);
     resetPage();
   } else if (event.target === $localButton) {
     $homepageView.classList.add('hidden');
     $notFound.classList.add('hidden');
     $localView.classList.remove('hidden');
+    window.scrollTo(0, 0);
     resetPage();
     $header.textContent = 'Local Breweries';
     showLoader($spinner);
@@ -57,6 +63,7 @@ function viewSwap(event) {
     $homepageView.classList.add('hidden');
     $pageResultsContainer.classList.add('hidden');
     $localView.classList.remove('hidden');
+    window.scrollTo(0, 0);
     $parentDiv.innerHTML = '';
     resetPage();
     $header.textContent = 'Favorites';
@@ -64,6 +71,7 @@ function viewSwap(event) {
   } else if (event.target === $searchBar || event.target === $searchBar2) {
     $homepageView.classList.add('hidden');
     $pageResultsContainer.classList.remove('hidden');
+    window.scrollTo(0, 0);
     $parentDiv.innerHTML = '';
     resetPage();
     showLoader($spinner);
@@ -481,6 +489,7 @@ $arrowLeft.addEventListener('click', function (event) {
     pageNumber--;
     breweryCount = 0;
     $parentDiv.innerHTML = '';
+    window.scrollTo(0, 0);
 
     showLoader($spinner);
 
@@ -520,6 +529,7 @@ $arrowRight.addEventListener('click', function (event) {
     breweryCount = 0;
     pageNumber++;
     $parentDiv.innerHTML = '';
+    window.scrollTo(0, 0);
 
     const breweryRequest = new XMLHttpRequest();
 
