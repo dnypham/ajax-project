@@ -13,11 +13,14 @@ const $favorites2 = document.querySelector('.favorites-list-2');
 const $searchBar = document.querySelector('.search-bar');
 const $searchBar2 = document.querySelector('.search-bar-2');
 const $modal = document.querySelector('#popup');
+const $arrowRight = document.querySelector('#arrow-right');
+const $arrowLeft = document.querySelector('#arrow-left');
 
 let breweryCount = 0;
 let city;
 let breweryName;
 let editId;
+let pageNumber = 1;
 
 // Functions
 
@@ -455,9 +458,6 @@ $modal.addEventListener('click', function (event) {
 
 //  Event listener to toggle arrow icons.
 
-var $arrowRight = document.querySelector('#arrow-right');
-var $arrowLeft = document.querySelector('#arrow-left');
-
 $arrowRight.addEventListener('mouseover', function (event) {
   $arrowRight.className = 'fas fa-arrow-alt-circle-right fa-2x';
 });
@@ -476,38 +476,36 @@ $arrowLeft.addEventListener('mouseout', function (event) {
 
 // Function to change brewery results
 
-var pageNumber = 1;
-
 $arrowLeft.addEventListener('click', function (event) {
   if (pageNumber > 1) {
     pageNumber--;
     breweryCount = 0;
-    showLoader(document.querySelector('.spinner-container'));
-
     $parentDiv.innerHTML = '';
-    var openBreweryDB = new XMLHttpRequest();
 
-    openBreweryDB.open('GET', 'https://api.openbrewerydb.org/breweries?page=' + pageNumber + '&' + 'per_page=20' + '&' + 'by_city=' + city);
-    openBreweryDB.responseType = 'json';
+    showLoader($spinner);
 
-    openBreweryDB.addEventListener('load', function () {
-      hideLoader(document.querySelector('.spinner-container'));
-      var breweries = openBreweryDB.response;
+    const breweryRequest = new XMLHttpRequest();
 
-      for (var i = 0; i < breweries.length; i++) {
-        $parentDiv.appendChild(renderBreweries(breweries[i]));
+    breweryRequest.open('GET', `https://api.openbrewerydb.org/breweries?page=${pageNumber}&per_page=20&by_city=${city}`);
+    breweryRequest.responseType = 'json';
+
+    breweryRequest.addEventListener('load', function () {
+      hideLoader($spinner);
+      const breweries = breweryRequest.response;
+
+      breweries.forEach(brewery => {
+        $parentDiv.appendChild(renderBreweries(brewery));
         breweryCount++;
-      }
+      });
 
-      if (breweryCount > 0) {
-        $header.textContent = city + ' ' + 'Breweries';
-      } else {
-        $header.textContent = 'No Breweries Found in' + ' ' + '"' + city + '"';
-      }
+      breweryCount > 0
+        ? $header.textContent = `${city} Breweries`
+        : $header.textContent = `No Breweries Found in "${city}"`;
+
       $searchBar.value = '';
     });
 
-    openBreweryDB.send();
+    breweryRequest.send();
   }
 
 });
