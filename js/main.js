@@ -313,22 +313,28 @@ function renderBreweries(brewery) {
 
   const $li1 = document.createElement('li');
 
-  brewery.phone
-    ? brewery.phone = `(${brewery.phone.slice(0, 3)}) ${brewery.phone.slice(3, 6)}-${brewery.phone.slice(6)}`
-    : brewery.phone = '';
+  if (!brewery.phone) {
+    brewery.phone = ' ';
+  } else if (!brewery.phone.includes('(')) {
+    brewery.phone = `(${brewery.phone.slice(0, 3)}) ${brewery.phone.slice(3, 6)}-${brewery.phone.slice(6)}`;
+  }
 
   $li1.textContent = brewery.phone;
   $ul.appendChild($li1);
 
   const $li2 = document.createElement('li');
 
-  brewery.street
-    ? brewery.street = `${brewery.street}, `
-    : brewery.street = '';
+  if (!brewery.street) {
+    brewery.street = ' ';
+  } else if (!brewery.street.includes(',')) {
+    brewery.street = `${brewery.street}, `;
+  }
 
-  brewery.city
-    ? brewery.city = `${brewery.city}, `
-    : brewery.city = '';
+  if (!brewery.city) {
+    brewery.city = ' ';
+  } else if (!brewery.city.includes(',')) {
+    brewery.city = `${brewery.city}, `;
+  }
 
   if (!brewery.state) {
     brewery.state = '';
