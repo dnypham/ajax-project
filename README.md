@@ -19,9 +19,8 @@ A dynamic JavaScript web application for beer enthusiasts to discover new brewer
   2. User can search for breweries by city.
   3. User can search for breweries by name.
   4. User can save breweries.
-
-## Stretch Features:
-  - User can create an account.
+  5. User can view saved breweries.
+  6. User can unfavorite saved breweries.
 
 ## Preview:
 ![brew-discovery-demo-2](https://user-images.githubusercontent.com/85265067/154155503-26681b2e-15cd-482a-b3d5-eb6bd72263a9.gif)
