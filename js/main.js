@@ -74,15 +74,15 @@ function viewSwap(event) {
   }
 }
 
-$homepage.addEventListener('click', function (event) {
+$homepage.addEventListener('click', event => {
   viewSwap(event);
 });
 
-$homepage2.addEventListener('click', function (event) {
+$homepage2.addEventListener('click', event => {
   viewSwap(event);
 });
 
-$localButton.addEventListener('click', function (event) {
+$localButton.addEventListener('click', event => {
 
   viewSwap(event);
 
@@ -91,7 +91,7 @@ $localButton.addEventListener('click', function (event) {
   geolocationRequest.open('GET', 'http://www.geoplugin.net/json.gp?ip=');
   geolocationRequest.responseType = 'json';
 
-  geolocationRequest.addEventListener('load', function () {
+  geolocationRequest.addEventListener('load', () => {
     const longitude = geolocationRequest.response.geoplugin_longitude;
     const latitude = geolocationRequest.response.geoplugin_latitude;
     const breweryRequest = new XMLHttpRequest();
@@ -99,7 +99,7 @@ $localButton.addEventListener('click', function (event) {
     breweryRequest.open('GET', `https://api.openbrewerydb.org/breweries?by_dist=${latitude},${longitude}`);
     breweryRequest.responseType = 'json';
 
-    breweryRequest.addEventListener('load', function () {
+    breweryRequest.addEventListener('load', () => {
       hideLoader($spinner);
       const breweries = breweryRequest.response;
 
@@ -111,7 +111,7 @@ $localButton.addEventListener('click', function (event) {
   geolocationRequest.send();
 });
 
-$favorites.addEventListener('click', function (event) {
+$favorites.addEventListener('click', event => {
   viewSwap(event);
 
   data.favorites.length === 0
@@ -119,7 +119,7 @@ $favorites.addEventListener('click', function (event) {
     : data.favorites.forEach(brewery => $parentDiv.appendChild(renderBreweries(brewery)));
 });
 
-$favorites2.addEventListener('click', function (event) {
+$favorites2.addEventListener('click', event => {
   viewSwap(event);
 
   data.favorites.length === 0
@@ -127,7 +127,7 @@ $favorites2.addEventListener('click', function (event) {
     : data.favorites.forEach(brewery => $parentDiv.appendChild(renderBreweries(brewery)));
 });
 
-$searchBar.addEventListener('keydown', function (event) {
+$searchBar.addEventListener('keydown', event => {
   if (event.keyCode === 13) {
 
     if (!$searchBar.value || $searchBar.value.trim().length === 0) {
@@ -144,7 +144,7 @@ $searchBar.addEventListener('keydown', function (event) {
       breweryRequest.open('GET', `https://api.openbrewerydb.org/breweries?page=${pageNumber}&per_page=20&by_city=${city}`);
       breweryRequest.responseType = 'json';
 
-      breweryRequest.addEventListener('load', function () {
+      breweryRequest.addEventListener('load', () => {
         hideLoader($spinner);
         const breweries = breweryRequest.response;
 
@@ -173,7 +173,7 @@ $searchBar.addEventListener('keydown', function (event) {
       breweryRequest.open('GET', `https://api.openbrewerydb.org/breweries?by_name=${breweryName}`);
       breweryRequest.responseType = 'json';
 
-      breweryRequest.addEventListener('load', function () {
+      breweryRequest.addEventListener('load', () => {
         hideLoader($spinner);
 
         const breweries = breweryRequest.response;
@@ -199,7 +199,7 @@ $searchBar.addEventListener('keydown', function (event) {
   }
 });
 
-$searchBar2.addEventListener('keydown', function (event) {
+$searchBar2.addEventListener('keydown', event => {
   if (event.keyCode === 13) {
 
     if (!$searchBar2.value || $searchBar2.value.trim().length === 0) {
@@ -216,7 +216,7 @@ $searchBar2.addEventListener('keydown', function (event) {
       breweryRequest.open('GET', `https://api.openbrewerydb.org/breweries?page=${pageNumber}&per_page=20&by_city=${city}`);
       breweryRequest.responseType = 'json';
 
-      breweryRequest.addEventListener('load', function () {
+      breweryRequest.addEventListener('load', () => {
         hideLoader($spinner);
         const breweries = breweryRequest.response;
 
@@ -245,7 +245,7 @@ $searchBar2.addEventListener('keydown', function (event) {
       breweryRequest.open('GET', `https://api.openbrewerydb.org/breweries?by_name=${breweryName}`);
       breweryRequest.responseType = 'json';
 
-      breweryRequest.addEventListener('load', function () {
+      breweryRequest.addEventListener('load', () => {
         hideLoader($spinner);
 
         const breweries = breweryRequest.response;
@@ -399,7 +399,7 @@ function renderBreweries(brewery) {
   return $col3;
 }
 
-$parentDiv.addEventListener('click', function (event) {
+$parentDiv.addEventListener('click', event => {
   if (event.target.matches('#heart')) {
     if (event.target.className === 'far fa-heart fa-2x') {
       event.target.className = 'fas fa-heart fa-2x';
@@ -410,7 +410,7 @@ $parentDiv.addEventListener('click', function (event) {
       breweryRequest.open('GET', `https://api.openbrewerydb.org/breweries/${id}`);
       breweryRequest.responseType = 'json';
 
-      breweryRequest.addEventListener('load', function () {
+      breweryRequest.addEventListener('load', () => {
         data.favorites.push(breweryRequest.response);
       });
 
@@ -423,7 +423,7 @@ $parentDiv.addEventListener('click', function (event) {
   }
 });
 
-$modal.addEventListener('click', function (event) {
+$modal.addEventListener('click', event => {
 
   if (event.target.textContent === 'CANCEL') {
     $modal.classList.add('hidden');
@@ -452,23 +452,23 @@ $modal.addEventListener('click', function (event) {
   }
 });
 
-$arrowRight.addEventListener('mouseover', function (event) {
+$arrowRight.addEventListener('mouseover', event => {
   $arrowRight.className = 'fas fa-arrow-alt-circle-right fa-2x';
 });
 
-$arrowRight.addEventListener('mouseout', function (event) {
+$arrowRight.addEventListener('mouseout', event => {
   $arrowRight.className = 'far fa-arrow-alt-circle-right fa-2x';
 });
 
-$arrowLeft.addEventListener('mouseover', function (event) {
+$arrowLeft.addEventListener('mouseover', event => {
   $arrowLeft.className = 'fas fa-arrow-alt-circle-left fa-2x';
 });
 
-$arrowLeft.addEventListener('mouseout', function (event) {
+$arrowLeft.addEventListener('mouseout', event => {
   $arrowLeft.className = 'far fa-arrow-alt-circle-left fa-2x';
 });
 
-$arrowLeft.addEventListener('click', function (event) {
+$arrowLeft.addEventListener('click', event => {
   if (pageNumber > 1) {
     pageNumber--;
     breweryCount = 0;
@@ -482,7 +482,7 @@ $arrowLeft.addEventListener('click', function (event) {
     breweryRequest.open('GET', `https://api.openbrewerydb.org/breweries?page=${pageNumber}&per_page=20&by_city=${city}`);
     breweryRequest.responseType = 'json';
 
-    breweryRequest.addEventListener('load', function () {
+    breweryRequest.addEventListener('load', () => {
       hideLoader($spinner);
 
       const breweries = breweryRequest.response;
@@ -504,7 +504,7 @@ $arrowLeft.addEventListener('click', function (event) {
 
 });
 
-$arrowRight.addEventListener('click', function (event) {
+$arrowRight.addEventListener('click', event => {
 
   if (breweryCount === 20) {
     showLoader($spinner);
@@ -518,7 +518,7 @@ $arrowRight.addEventListener('click', function (event) {
     breweryRequest.open('GET', `https://api.openbrewerydb.org/breweries?page=${pageNumber}&per_page=20&by_city=${city}`);
     breweryRequest.responseType = 'json';
 
-    breweryRequest.addEventListener('load', function () {
+    breweryRequest.addEventListener('load', () => {
       hideLoader($spinner);
 
       const breweries = breweryRequest.response;
@@ -545,7 +545,7 @@ $arrowRight.addEventListener('click', function (event) {
   }
 });
 
-$searchToggle.addEventListener('click', function (event) {
+$searchToggle.addEventListener('click', event => {
   if ($searchBar.getAttribute('placeholder') === 'Search by city...') {
     $searchBar.setAttribute('placeholder', 'Search by name...');
   } else {
@@ -553,7 +553,7 @@ $searchToggle.addEventListener('click', function (event) {
   }
 });
 
-$searchToggle2.addEventListener('click', function (event) {
+$searchToggle2.addEventListener('click', event => {
   if ($searchBar2.getAttribute('placeholder') === 'Search by city...') {
     $searchBar2.setAttribute('placeholder', 'Search by name...');
   } else {
