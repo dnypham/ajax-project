@@ -17,6 +17,20 @@
   z-index: 1000;
 }
 
+.header-2 {
+  display: none;
+  position: fixed;
+  font-family: 'Montserrat', sans-serif;
+  background-color: #f9b437;
+  color: white;
+  height: 90px;
+  font-size: 14px;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+}
+
 .logo-flex {
   height: 45px;
   display: flex;
@@ -24,7 +38,7 @@
   align-items: center;
 }
 
-.logo-flex > h1 {
+.logo-flex > a {
   font-size: inherit;
   margin-left: 10px;
 }
@@ -47,7 +61,11 @@
   padding: 0 10px;
 }
 
-.search-flex > #search-toggle {
+.search-flex > .search-toggle {
+  margin-left: 10px;
+}
+
+.search-flex > .search-toggle-2 {
   margin-left: 10px;
 }
 
@@ -152,7 +170,7 @@
 }
 
 .brewery-card {
-  width: 565px;
+  width: 540px;
   height: 200px;
   border: 1px solid #f9b437;
   box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
@@ -212,8 +230,8 @@
 
 .brewery-map {
   border: 1px solid #f9b437;
-  width: 230px;
-  height: 170px;
+  width: 150px;
+  height: 140px;
 }
 
 .map-image {
@@ -232,6 +250,14 @@
   justify-content: space-between;
   color: #f9b437;
   width: 120px;
+}
+
+.not-found-container {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 /* ----------POPUP-MODAL---------- */
@@ -291,14 +317,22 @@
 
 /* ----------FOOTER---------- */
 
+.page-container {
+  position: relative;
+  min-height: 100vh;
+}
+
+.content-wrap {
+  padding-bottom: 2.5rem;
+}
+
 .footer {
-  position: fixed;
+  position: absolute;
   background-color: #f9b437;
   bottom: 0;
-  left: 0;
-  right: 0;
+  width: 100%;
   color: white;
-  height: 45px;
+  height: 2.5rem;
   font-size: 14px;
   font-family: 'Montserrat', sans-serif;
 }
@@ -314,6 +348,94 @@
 
 .icon-flex > a {
   color: white;
+}
+
+/* ----------SPINNER---------- */
+
+.spinner-container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@keyframes ldio-ts84h93jj4 {
+  0% {
+    transform: rotate(0);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.ldio-ts84h93jj4 div {
+  box-sizing: border-box !important;
+}
+
+.ldio-ts84h93jj4 > div {
+  position: absolute;
+  width: 55px;
+  height: 55px;
+  top: 22.5px;
+  left: 22.5px;
+  border-radius: 50%;
+  border: 7px solid #000;
+  border-color: #f9b437 transparent #f9b437 transparent;
+  animation: ldio-ts84h93jj4 0.9900990099009901s linear infinite;
+}
+
+.ldio-ts84h93jj4 > div:nth-child(2) {
+  border-color: transparent;
+}
+
+.ldio-ts84h93jj4 > div:nth-child(2) div {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  transform: rotate(45deg);
+}
+
+.ldio-ts84h93jj4 > div:nth-child(2) div::before,
+.ldio-ts84h93jj4 > div:nth-child(2) div::after {
+  content: "";
+  display: block;
+  position: absolute;
+  width: 7px;
+  height: 7px;
+  top: -7px;
+  left: 17px;
+  background: #f9b437;
+  border-radius: 50%;
+  box-shadow: 0 48px 0 0 #f9b437;
+}
+
+.ldio-ts84h93jj4 > div:nth-child(2) div::after {
+  left: -7px;
+  top: 17px;
+  box-shadow: 48px 0 0 0 #f9b437;
+}
+
+.loadingio-spinner-dual-ring-c43arognha6 {
+  width: 94px;
+  height: 94px;
+  display: inline-block;
+  overflow: hidden;
+  background: none;
+}
+
+.ldio-ts84h93jj4 {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  transform: translateZ(0) scale(0.94);
+  backface-visibility: hidden;
+  transform-origin: 0 0;
+}
+
+.hidden {
+  display: none;
 }
 
 /* ----------PSEUDO-CLASSES---------- */
@@ -332,11 +454,15 @@
   cursor: pointer;
 }
 
-.search-flex > #search-toggle:hover {
+.search-flex > .search-toggle:hover {
   color: black;
 }
 
-.logo-flex > h1:hover {
+.search-flex > .search-toggle-2:hover {
+  color: black;
+}
+
+.logo-flex > a:hover {
   cursor: pointer;
   color: black;
 }
@@ -386,38 +512,72 @@
 
 /* ----------MEDIA QUERIES---------- */
 
-@media only screen and (max-width: 1000px) {
-  .column-half {
-    flex-basis: 100%;
+@media only screen and (max-width: 1200px) {
+  .image-container {
+    height: 280px;
+    width: 280px;
   }
 
-  .column-third {
-    flex-basis: 100%;
+  .brewery-card {
+    width: 450px;
   }
 
-  .main {
-    margin: 45px auto 50px;
-  }
-
-  .img-content {
-    padding: 40px 0 0 0;
-  }
-
-  .main h1 {
-    padding-top: 15px;
-    font-size: 44px;
-  }
-
-  .local-button-flex {
-    margin-bottom: 45px;
-  }
-
-  .height-120 {
-    height: 100px;
+  .brewery-map {
+    width: 130px;
+    height: 120px;
   }
 }
 
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 992px) {
+  .main h1 {
+    font-size: 50px;
+  }
+
+  .image-container {
+    height: 220px;
+    width: 220px;
+  }
+
+  .img-content > p {
+    font-size: 12px;
+  }
+
+  .brewery-card {
+    width: 540px;
+  }
+
+  .brewery-map {
+    width: 150px;
+    height: 140px;
+  }
+
+  .column-half-content {
+    flex-basis: 100%;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .header {
+    display: none;
+  }
+
+  .header-2 {
+    display: block;
+  }
+
+  .main h1 {
+    font-size: 36px;
+  }
+
+  .image-container {
+    height: 325px;
+    width: 325px;
+  }
+
+  .img-content > p {
+    font-size: 14px;
+  }
+
   .column-half {
     flex-basis: 100%;
   }
@@ -427,16 +587,15 @@
   }
 
   .main {
-    margin: 45px auto 100px;
+    margin: 90px auto 100px;
+  }
+
+  .padding-30 {
+    padding: 0 10px;
   }
 
   .img-content {
     padding: 40px 0 0 0;
-  }
-
-  .main h1 {
-    padding-top: 0;
-    font-size: 36px;
   }
 
   .local-button-flex {
@@ -466,6 +625,68 @@
   }
 
   .border-top {
-    margin: 0 40px;
+    margin: 20px 40px 0;
+  }
+
+  .pop-up {
+    width: 400px;
+    height: 200px;
+  }
+
+  .pop-up > h4 {
+    font-size: 28px;
+  }
+
+  .button-container {
+    padding: 0 50px;
+  }
+}
+
+@media only screen and (max-width: 576px) {
+  .main h1 {
+    font-size: 26px;
+  }
+
+  .image-container {
+    height: 300px;
+    width: 300px;
+  }
+
+  .img-content > p {
+    font-size: 14px;
+  }
+
+  .border-top {
+    margin: 35px 40px 0;
+  }
+
+  .brewery-card {
+    width: 330px;
+  }
+
+  .brewery-map {
+    display: none;
+  }
+
+  .brewery-info {
+    width: 300px;
+  }
+
+  .pop-up {
+    width: 300px;
+    height: 200px;
+  }
+
+  .pop-up > h4 {
+    font-size: 21px;
+  }
+
+  .button-container {
+    padding: 0 30px;
+  }
+
+  .button-container > button {
+    width: 100px;
+    font-size: 18px;
   }
 }

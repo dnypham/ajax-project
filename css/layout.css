@@ -32,7 +32,15 @@ body {
   flex-basis: 100%;
 }
 
+.column-full-content {
+  flex-basis: 100%;
+}
+
 .column-half {
+  flex-basis: 50%;
+}
+
+.column-half-content {
   flex-basis: 50%;
 }
 
@@ -44,6 +52,10 @@ body {
   flex-wrap: wrap;
 }
 
-.hidden {
-  display: none;
+.header-column-full {
+  flex-basis: 100%;
+}
+
+.header-column-half {
+  flex-basis: 50%;
 }

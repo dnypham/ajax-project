@@ -17,122 +17,163 @@
 </head>
 <body>
 
-  <header class="header">
-    <nav class="row padding-30">
-      <div class="column-third">
-        <div class="logo-flex">
-          <i class="fas fa-beer fa-2x"></i>
-          <h1>Brew Discovery</h1>
-        </div>
-      </div>
-      <div class="column-third">
-        <div class="search-flex">
-          <label for="search-bar"><i class="fas fa-search"></i></label>
-          <input name="searchBar" id="search-bar" type="text" placeholder="Search by city...">
-          <i id="search-toggle" class="fas fa-bars"></i>
-        </div>
-      </div>
-      <div class="column-third">
-        <div class="nav-links-flex">
-          <i id="favorites-list" class="fas fa-heart fa-2x"></i>
-          <p>Sign in</p>
-        </div>
-      </div>
-    </nav>
-  </header>
+  <div class="page-container">
+    <div class="content-wrap">
 
-  <main class="main" data-view="homepage">
-
-    <div class="row height-120 border-bottom">
-      <div class="column-full">
-        <h1>WELCOME TO BREW DISCOVERY</h1>
-      </div>
-    </div>
-
-    <div class="row flex-wrap">
-      <div class="column-third center-image">
-        <div class="img-content">
-          <div class="image-container">
-            <img src="images/frank-luca-c-fbj_fTFUM-unsplash.jpg" alt="Beer from top view">
+      <header class="header">
+        <nav class="row padding-30">
+          <div class="column-third">
+            <div class="logo-flex">
+              <i class="fas fa-beer fa-2x"></i>
+              <a class="logo">Brew Discovery</a>
+            </div>
           </div>
-          <p>Discover local breweries</p>
-        </div>
-      </div>
-      <div class="column-third center-image">
-        <div class="img-content">
-          <div class="image-container">
-            <img src="images/meritt-thomas-2UsNF4Az-Ko-unsplash.jpg" alt="Beer flights">
+          <div class="column-third">
+            <div class="search-flex">
+              <label for="search-bar"><i class="fas fa-search"></i></label>
+              <input name="searchBar" class="search-bar" type="text" placeholder="Search by city...">
+              <i class="fas fa-bars search-toggle"></i>
+            </div>
           </div>
-          <p>Discover breweries in different cities</p>
-        </div>
-      </div>
-      <div class="column-third center-image">
-        <div class="img-content">
-          <div class="image-container">
-            <img src="images/wil-stewart-UErWoQEoMrc-unsplash.jpg" alt="Two people clinking beers">
+          <div class="column-third">
+            <div class="nav-links-flex">
+              <i class="fas fa-heart fa-2x favorites-list"></i>
+            </div>
           </div>
-          <p>Save your favorite breweries</p>
-        </div>
-      </div>
-    </div>
+        </nav>
+      </header>
 
-    <div class="row border-top">
-      <div class="column-full">
-        <div class="local-button-flex">
-          <p>To get started, click below!</p>
-          <button id="local-button">LOCAL</button>
-        </div>
-      </div>
-    </div>
+      <header class="header-2">
+        <nav class="row padding-30 flex-wrap">
+          <div class="header-column-half">
+            <div class="logo-flex">
+              <i class="fas fa-beer fa-2x"></i>
+              <a class="logo-2">Brew Discovery</a>
+            </div>
+          </div>
+          <div class="header-column-half">
+            <div class="nav-links-flex">
+              <i class="fas fa-heart fa-2x favorites-list-2"></i>
+            </div>
+          </div>
+          <div class="header-column-full">
+            <div class="search-flex">
+              <label for="search-bar"><i class="fas fa-search"></i></label>
+              <input name="searchBar" class="search-bar-2" type="text" placeholder="Search by city...">
+              <i class="fas fa-bars search-toggle-2"></i>
+            </div>
+          </div>
+        </nav>
+      </header>
 
-  </main>
+      <main class="main" data-view="homepage">
 
-  <main class="main hidden" data-view="local">
-
-    <div class="row height-120 mobile-view-local">
-      <div class="column-full">
-        <h1 id="dynamic-header">Local Breweries</h1>
-      </div>
-    </div>
-
-    <div id="parent-div" class="row flex-wrap">
-
-    </div>
-    <div id ="page-results-container" class="row hidden">
-      <div class="column-full">
-        <div class="arrow-container">
-          <div class="page-arrows">
-            <i id="arrow-left" class="far fa-arrow-alt-circle-left fa-2x"></i>
-            <i id="arrow-right" class="far fa-arrow-alt-circle-right fa-2x"></i>
+        <div class="row height-120 border-bottom">
+          <div class="column-full">
+            <h1>WELCOME TO BREW DISCOVERY</h1>
           </div>
         </div>
-      </div>
+
+        <div class="row flex-wrap">
+          <div class="column-third center-image">
+            <div class="img-content">
+              <div class="image-container">
+                <img src="images/frank-luca-c-fbj_fTFUM-unsplash.jpg" alt="Beer from top view">
+              </div>
+              <p>Discover local breweries</p>
+            </div>
+          </div>
+          <div class="column-third center-image">
+            <div class="img-content">
+              <div class="image-container">
+                <img src="images/meritt-thomas-2UsNF4Az-Ko-unsplash.jpg" alt="Beer flights">
+              </div>
+              <p>Discover breweries in different cities</p>
+            </div>
+          </div>
+          <div class="column-third center-image">
+            <div class="img-content">
+              <div class="image-container">
+                <img src="images/wil-stewart-UErWoQEoMrc-unsplash.jpg" alt="Two people clinking beers">
+              </div>
+              <p>Save your favorite breweries</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="row border-top">
+          <div class="column-full">
+            <div class="local-button-flex">
+              <p>To get started, click below!</p>
+              <button id="local-button">LOCAL</button>
+            </div>
+          </div>
+        </div>
+
+      </main>
+
+      <main class="main hidden" data-view="local">
+        <div class="row height-120 mobile-view-local">
+          <div class="column-full-content">
+            <h1 id="dynamic-header">Local Breweries</h1>
+          </div>
+        </div>
+        <div class="not-found-container hidden">
+          <h2>No breweries saved.</h2>
+        </div>
+        <div class="spinner-container">
+          <div class="loadingio-spinner-dual-ring-c43arognha6">
+            <div class="ldio-ts84h93jj4">
+              <div></div>
+              <div>
+                <div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div id="parent-div" class="row flex-wrap">
+
+        </div>
+        <div id="page-results-container" class="row hidden">
+          <div class="column-full-content">
+            <div class="arrow-container">
+              <div class="page-arrows">
+                <i id="arrow-left" class="far fa-arrow-alt-circle-left fa-2x"></i>
+                <i id="arrow-right" class="far fa-arrow-alt-circle-right fa-2x"></i>
+              </div>
+            </div>
+          </div>
+        </div>
+      </main>
+
+      <section id="popup" class="hidden">
+        <div class="pop-up-container">
+          <div class="pop-up">
+            <h4>Unfavorite Brewery?</h4>
+            <div class="button-container">
+              <button class="cancel-button">CANCEL</button>
+              <button class="confirm-button">CONFIRM</button>
+            </div>
+          </div>
+        </div>
+      </section>
+
     </div>
 
-  </main>
-
-  <section id="popup" class="hidden">
-    <div class="pop-up-container">
-      <div class="pop-up">
-        <h4>Unfavorite Brewery?</h4>
-        <div class="button-container">
-          <button class="cancel-button">CANCEL</button>
-          <button class="confirm-button">CONFIRM</button>
+    <footer class="footer">
+      <div class="row">
+        <div class="column-full">
+          <div class="icon-flex">
+            <a href="https://github.com/dnypham" target="_blank"><i id="github" class="fab fa-github-square fa-2x"></i></a>
+            <a href="https://www.linkedin.com/in/daniel-pham-10/" target="_blank"><i id="linkedin"
+                class="fab fa-linkedin fa-2x"></i></a>
+          </div>
         </div>
       </div>
-    </div>
-  </section>
+    </footer>
 
-  <footer class="footer">
-    <div class="row">
-      <div class="column-full">
-        <div class="icon-flex">
-          <a href="https://github.com/dnypham" target="_blank"><i id="github" class="fab fa-github-square fa-2x"></i></a>
-          <a href="https://www.linkedin.com/in/daniel-pham-10/" target="_blank"><i id="linkedin" class="fab fa-linkedin fa-2x"></i></a>
-        </div>
-      </div>
-    </div>
-  </footer>
+  </div>
+
 
   <script src="js/data.js"></script>
   <script src="js/main.js"></script>
