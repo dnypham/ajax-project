@@ -88,12 +88,12 @@ $localButton.addEventListener('click', event => {
 
   const geolocationRequest = new XMLHttpRequest();
 
-  geolocationRequest.open('GET', 'https://www.geoplugin.net/json.gp?ip=');
+  geolocationRequest.open('GET', 'https://freegeoip.app/json/');
   geolocationRequest.responseType = 'json';
 
   geolocationRequest.addEventListener('load', () => {
-    const longitude = geolocationRequest.response.geoplugin_longitude;
-    const latitude = geolocationRequest.response.geoplugin_latitude;
+    const latitude = geolocationRequest.response.latitude;
+    const longitude = geolocationRequest.response.longitude;
     const breweryRequest = new XMLHttpRequest();
 
     breweryRequest.open('GET', `https://api.openbrewerydb.org/breweries?by_dist=${latitude},${longitude}`);
