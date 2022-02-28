@@ -24,6 +24,7 @@ A dynamic JavaScript web application for beer enthusiasts to discover new brewer
 
 ## Preview:
 ![brew-discovery-demo-2](https://user-images.githubusercontent.com/85265067/154155503-26681b2e-15cd-482a-b3d5-eb6bd72263a9.gif)
+![brew-discovery-mobile](https://user-images.githubusercontent.com/85265067/156072935-bb93a725-04c9-4e44-b99b-0c2296519011.gif)
 
 
 ## Getting Started
