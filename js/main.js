@@ -88,7 +88,7 @@ $localButton.addEventListener('click', event => {
 
   const geolocationRequest = new XMLHttpRequest();
 
-  geolocationRequest.open('GET', 'http://www.geoplugin.net/json.gp?ip=');
+  geolocationRequest.open('GET', 'https://www.geoplugin.net/json.gp?ip=');
   geolocationRequest.responseType = 'json';
 
   geolocationRequest.addEventListener('load', () => {
