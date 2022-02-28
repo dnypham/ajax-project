@@ -1,4 +1,4 @@
-# Brew Discovery (Not complete, work in progress)
+# Brew Discovery
 
 A dynamic JavaScript web application for beer enthusiasts to discover new breweries.
 
